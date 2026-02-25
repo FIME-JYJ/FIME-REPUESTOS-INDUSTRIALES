@@ -1,0 +1,85 @@
+/* ===== BUSCADOR ===== */
+.buscador {
+  background: var(--navy);
+  padding: 52px 0;
+}
+.buscador__box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  padding: 36px 40px;
+}
+.buscador__title {
+  color: var(--white);
+  font-family: var(--font-condensed);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.buscador__title-icon { color: var(--cyan); font-size: 1.3rem; }
+
+.buscador__row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.buscador__select,
+.buscador__input {
+  padding: 12px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.09);
+  color: var(--white);
+  font-size: 0.9rem;
+  font-family: var(--font-main);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.buscador__select { flex: 1; min-width: 180px; cursor: pointer; }
+.buscador__input  { flex: 2; min-width: 240px; }
+.buscador__select option { color: var(--text); background: var(--white); }
+.buscador__input::placeholder { color: rgba(255, 255, 255, 0.45); }
+.buscador__select:focus,
+.buscador__input:focus {
+  border-color: var(--cyan);
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.buscador__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 26px;
+  background: var(--cyan);
+  color: var(--white);
+  border: 2px solid var(--cyan);
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.9rem;
+  font-family: var(--font-main);
+  cursor: pointer;
+  transition: all 0.22s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.buscador__btn:hover {
+  background: var(--cyan-dark);
+  border-color: var(--cyan-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 170, 255, 0.38);
+}
+.buscador__btn-icon { font-size: 1rem; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .buscador__box { padding: 24px 20px; }
+  .buscador__row { flex-direction: column; }
+  .buscador__select,
+  .buscador__input { min-width: 100%; }
+}
