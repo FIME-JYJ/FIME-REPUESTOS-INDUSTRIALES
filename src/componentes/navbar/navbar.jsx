@@ -4,6 +4,7 @@ import {
   FiMenu, FiX, FiChevronDown
 } from 'react-icons/fi';
 import './navbar.css';
+import { Link } from 'react-router-dom';
 
 const categories = [
   {
@@ -65,23 +66,23 @@ export default function Navbar() {
         <div className="container header__inner">
 
           {/* Logo */}
-          <a href="#inicio" className="logo">
+          <Link to="/" className="logo" onClick={() => setMenuOpen(false)}>
             <span className="logo__fime">fime</span>
             <span className="logo__rep">+Repuestos</span>
-          </a>
+          </Link>
 
           {/* Nav */}
           <nav className={`nav${menuOpen ? ' nav--open' : ''}`}>
-            <a href="#inicio" className="nav__link" onClick={() => setMenuOpen(false)}>Inicio</a>
-
+            <Link to="/" className="nav__link" onClick={() => setMenuOpen(false)}>Inicio</Link>
+            <Link to="/catalogo" className="nav__link" onClick={() => setMenuOpen(false)}>Catálogo</Link>
             <div
               className="nav__dropdown"
               onMouseEnter={() => setDropdownOpen(true)}
               onMouseLeave={() => setDropdownOpen(false)}
             >
-              <a href="#productos" className="nav__link nav__link--arrow">
+              <Link to="/#productos" className="nav__link nav__link--arrow" onClick={() => { setMenuOpen(false); setDropdownOpen(true); }}>
                 Repuestos <FiChevronDown className="nav__chevron" />
-              </a>
+              </Link>
               {dropdownOpen && (
                 <div className="mega">
                   <div className="container mega__grid">
@@ -89,7 +90,14 @@ export default function Navbar() {
                       <div key={cat.name} className="mega__col">
                         <p className="mega__title">{cat.name}</p>
                         {cat.subcats.map((sub) => (
-                          <a key={sub} href="#productos" className="mega__item">{sub}</a>
+                          <Link
+                            key={sub}
+                            to="/#productos"
+                            className="mega__item"
+                            onClick={() => { setMenuOpen(false); setDropdownOpen(false); }}
+                          >
+                            {sub}
+                          </Link>
                         ))}
                       </div>
                     ))}
@@ -98,9 +106,9 @@ export default function Navbar() {
               )}
             </div>
 
-            <a href="#marcas" className="nav__link" onClick={() => setMenuOpen(false)}>Marcas</a>
-            <a href="#nosotros" className="nav__link" onClick={() => setMenuOpen(false)}>Quiénes Somos</a>
-            <a href="#contacto" className="nav__link" onClick={() => setMenuOpen(false)}>Contacto</a>
+            <Link to="/#marcas" className="nav__link" onClick={() => setMenuOpen(false)}>Marcas</Link>
+            <Link to="/#nosotros" className="nav__link" onClick={() => setMenuOpen(false)}>Quiénes Somos</Link>
+            <Link to="/#contacto" className="nav__link" onClick={() => setMenuOpen(false)}>Contacto</Link>
           </nav>
 
           {/* Actions */}
@@ -124,9 +132,9 @@ export default function Navbar() {
             <FiMenu className="catbar__all-icon" /> Todos los Productos
           </button>
           {categories.map((cat) => (
-            <a key={cat.name} href="#productos" className="catbar__link">
+            <Link key={cat.name} to="/#productos" className="catbar__link" onClick={() => setMenuOpen(false)}>
               {cat.name}
-            </a>
+            </Link>
           ))}
         </div>
       </div>
