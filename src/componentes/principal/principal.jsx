@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import { FiArrowRight, FiPackage, FiAward, FiUsers, FiTruck } from 'react-icons/fi';
 import fimeLogo from '../../img/fime.png';
+import banner1 from '../../img/Banner/banner1.webp';
 import './principal.css';
 
 const slides = [
   {
     title: 'Repuestos de Alta Calidad',
     subtitle: 'Para camiones Americanos (Volvo, Freightliner, Internacional, Kenworth, etc). Disponibilidad inmediata y envio a todo el pais.',
+    backgroundImage: banner1,
   },
   {
     title: 'Mas de 10,000 Referencias',
@@ -67,9 +69,34 @@ export default function Principal() {
       {/* Hero */}
       <section id="inicio" className="hero">
         {slides.map((slide, i) => (
-          <div key={i} className={`hero__slide${current === i ? ' hero__slide--active' : ''}`}>
+          <div 
+            key={i} 
+            className={`hero__slide${current === i ? ' hero__slide--active' : ''}`}
+            style={slide.backgroundImage ? {
+              background: `
+                linear-gradient(to right, 
+                  transparent 0%, 
+                  transparent 45%, 
+                  #0a1a4d 50%,
+                  #0a1a4d 100%
+                ),
+                url(${slide.backgroundImage})
+              `,
+              backgroundSize: 'cover, 50% 100%',
+              backgroundPosition: 'center, left center',
+              backgroundRepeat: 'no-repeat, no-repeat'
+            } : {
+              background: '#0a1a4d'
+            }}
+          >
             <div className="hero__overlay" />
-            <div className="container hero__content">
+            
+            {/* Gradientes alrededor de los camiones */}
+            {slide.backgroundImage && (
+              <div className="hero__image-gradients"></div>
+            )}
+            
+            <div className="container hero__content" style={{background: 'transparent'}}>
               <p className="hero__eyebrow">Fime Repuestos</p>
               <h1 className="hero__title">{slide.title}</h1>
               <p className="hero__subtitle">{slide.subtitle}</p>
@@ -84,9 +111,9 @@ export default function Principal() {
         ))}
 
         {/* Logo image */}
-        <div className="hero__badge">
+        {/* <div className="hero__badge">
           <img src={fimeLogo} alt="Fime Repuestos" className="hero__badge-img" />
-        </div>
+        </div> */}
 
         {/* Numbered Dots with Progress */}
         <div className="hero__dots">

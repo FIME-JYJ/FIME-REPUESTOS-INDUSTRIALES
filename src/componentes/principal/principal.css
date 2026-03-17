@@ -11,24 +11,73 @@
   transition: opacity 1.2s ease-in-out;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 55%, #1b4a90 100%);
+  background: #0a1a4d;
+  /* Layout: imagen a la izquierda, contenido a la derecha */
+  background-size: 50% 100%, 100% 100%;
+  background-position: left center, center center;
+  background-repeat: no-repeat, no-repeat;
 }
 .hero__slide--active { opacity: 1; z-index: 1; }
-.hero__slide:nth-child(2) { background: linear-gradient(135deg, #0d1f5e 0%, var(--navy) 60%, #005faa 100%); }
-.hero__slide:nth-child(3) { background: linear-gradient(135deg, #060f30 0%, var(--navy-dark) 55%, var(--navy) 100%); }
+.hero__slide:nth-child(2) { background: #0a1a4d; }
+.hero__slide:nth-child(3) { background: #0a1a4d; }
 
+/* Eliminar overlay que causa el fondo gris */
 .hero__overlay {
+  display: none;
+}
+
+/* Gradientes alrededor de los camiones */
+.hero__image-gradients {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse at 72% 50%, rgba(0, 170, 255, 0.16) 0%, transparent 60%),
-    radial-gradient(ellipse at 10% 80%, rgba(26, 47, 110, 0.4) 0%, transparent 50%);
+  z-index: 1;
+  background: 
+    /* Gradiente oval solo en el área de la imagen (izquierda) */
+    radial-gradient(ellipse 700px 400px at 25% 55%, 
+      transparent 0%, 
+      transparent 40%, 
+      rgba(10, 26, 77, 0.1) 60%,
+      rgba(10, 26, 77, 0.3) 75%,
+      rgba(10, 26, 77, 0.6) 85%,
+      rgba(10, 26, 77, 0.8) 92%,
+      #0a1a4d 100%
+    );
+  pointer-events: none;
+  /* Limitar el gradiente solo al área de la imagen */
+  width: 50%;
+}
+
+/* Marco circular difuminado para la imagen */
+.hero__image-frame {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 1;
+  background: 
+    radial-gradient(circle 550px at 25% 50%, transparent 50%, rgba(13, 31, 94, 0.1) 60%, rgba(13, 31, 94, 0.4) 75%, rgba(13, 31, 94, 0.8) 88%, #0d1f5e 95%);
+  pointer-events: none;
 }
 
 .hero__content {
   position: relative;
   z-index: 2;
   animation: heroIn 0.8s ease-out both;
+  /* Posicionar contenido a la derecha completamente sobre fondo azul */
+  margin-left: 50%;
+  width: 50%;
+  background: transparent !important;
+  padding: 60px 40px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Asegurar que el container no tenga fondo blanco */
+.hero .container {
+  background: transparent !important;
 }
 @keyframes heroIn {
   from { opacity: 0; transform: translateY(30px); }
@@ -40,26 +89,29 @@
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--cyan);
+  color: #ffffff;
   margin-bottom: 12px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 }
 .hero__title {
   font-family: var(--font-condensed);
   font-size: 3.4rem;
   font-weight: 800;
-  color: var(--white);
+  color: #ffffff;
   line-height: 1.05;
   margin-bottom: 18px;
   max-width: 620px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 .hero__subtitle {
   font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: #ffffff;
   margin-bottom: 36px;
   max-width: 480px;
   line-height: 1.7;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 /* CTA Buttons */
@@ -89,29 +141,38 @@
   box-shadow: 0 8px 24px rgba(0, 170, 255, 0.38);
 }
 .btn--ghost {
-  background: transparent;
-  color: rgba(255, 255, 255, 0.88);
-  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 .btn--ghost:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.9);
   transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
 }
 .btn__icon { font-size: 1rem; }
 
 /* ===== LOGO BADGE (imagen) ===== */
 .hero__badge {
   position: absolute;
-  right: 9%;
+  right: 20%;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 2;
-  width: 240px;
-  height: 240px;
+  z-index: 3;
+  width: 160px;
+  height: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  /* Crear una máscara circular para ocultar el cuadrado */
+  border-radius: 50%;
+  overflow: hidden;
   /* Halo de luz sutil detrás del logo */
   filter: drop-shadow(0 0 32px rgba(0, 170, 255, 0.35));
   animation: badgePulse 6s ease-in-out infinite;
@@ -131,7 +192,25 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  mix-blend-mode: screen;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  /* Asegurar que no hay estilos heredados */
+  margin: 0 !important;
+  padding: 0 !important;
+  /* Aplicar máscara circular directamente a la imagen */
+  -webkit-mask: radial-gradient(circle, black 55%, transparent 50%);
+  mask: radial-gradient(circle, black 55%, transparent 50%);
+}
+
+/* Limpiar cualquier estilo que pueda afectar la imagen */
+.hero__badge *,
+.hero__badge *::before,
+.hero__badge *::after {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 /* Dots */
@@ -247,4 +326,26 @@
   .hero__title { font-size: 1.9rem; }
   .hero__subtitle { font-size: 0.95rem; }
   .statsbar__inner { gap: 24px; justify-content: flex-start; padding: 0 8px; }
+}
+
+/* Máscara circular de brillo para resaltar los camiones */
+.hero__image-spotlight {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: 
+    radial-gradient(ellipse 500px 350px at 20% 50%, 
+      transparent 0%, 
+      transparent 35%, 
+      rgba(13, 31, 94, 0.1) 45%,
+      rgba(13, 31, 94, 0.3) 60%,
+      rgba(13, 31, 94, 0.6) 75%,
+      rgba(13, 31, 94, 0.8) 85%,
+      rgba(13, 31, 94, 0.95) 92%,
+      #0d1f5e 100%
+    );
+  pointer-events: none;
 }
