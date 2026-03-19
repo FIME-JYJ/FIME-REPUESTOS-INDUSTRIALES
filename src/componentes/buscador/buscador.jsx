@@ -7,11 +7,6 @@ const brands = [
   'Mack', 'Volvo',
 ];
 
-const categories = [
-  'Motores', 'Suspensión', 'Frenos de Aire',
-  'Filtración', 'Aire Acondicionado', 'Accesorios',
-];
-
 export default function Buscador() {
   const [term, setTerm] = useState('');
 
@@ -26,11 +21,6 @@ export default function Buscador() {
             <select className="buscador__select">
               <option value="">Seleccionar Marca</option>
               {brands.map((b) => <option key={b} value={b}>{b}</option>)}
-            </select>
-
-            <select className="buscador__select">
-              <option value="">Categoria</option>
-              {categories.map((c) => <option key={c} value={c}>{c}</option>)}
             </select>
 
             <input
