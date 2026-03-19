@@ -7,8 +7,8 @@ const contactItems = [
     label: 'Teléfono',  
     value: ['+51 983507611', '+51 912195453']
   },
-  { icon: FiMail,  label: 'Correo',    value: 'ventas@fimerepuestos.com' },
-  { icon: FiMapPin, label: 'Direccion', value: 'Lima, Perú' },
+  { icon: FiMail,  label: 'Correo',    value: 'jjulian@fime-repuestos.com' },
+  { icon: FiMapPin, label: 'Direccion', value: 'Avenida Argentina 477 Int. 113, Cercado de Lima, Perú' },
   { icon: FiClock, label: 'Horario',   value: 'Lun - Sab: 8:00am - 6:00pm' },
 ];
 
