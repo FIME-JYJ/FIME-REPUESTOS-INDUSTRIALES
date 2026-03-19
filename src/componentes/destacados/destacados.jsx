@@ -1,4 +1,4 @@
-import { FiSettings, FiBox, FiTruck, FiShoppingCart, FiArrowRight } from 'react-icons/fi';
+import { FiSettings, FiBox, FiTruck, FiArrowRight } from 'react-icons/fi';
 import './destacados.css';
 
 const categories = [
@@ -93,9 +93,7 @@ export default function Destacados() {
                   <h4 className="prodcard__name">{name}</h4>
                   <div className="prodcard__footer">
                     <span className="prodcard__price">{price}</span>
-                    <button className="prodcard__btn">
-                      <FiShoppingCart /> Agregar
-                    </button>
+
                   </div>
                 </div>
               </div>
