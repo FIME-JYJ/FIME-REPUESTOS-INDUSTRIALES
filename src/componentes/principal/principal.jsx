@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { FiArrowRight, FiPackage, FiAward, FiUsers, FiTruck } from 'react-icons/fi';
 import fimeLogo from '../../img/fime.png';
 import banner1 from '../../img/Banner/banner1.webp';
+import banner2 from '../../img/Banner/banner2.webp';
+import banner3 from '../../img/Banner/banner3.webp';
 import './principal.css';
 
 const slides = [
@@ -13,10 +15,12 @@ const slides = [
   {
     title: 'Mas de 10,000 Referencias',
     subtitle: 'En stock y disponibles para entrega inmediata. Piezas originales y alternativas.',
+    backgroundImage: banner2,
   },
   {
     title: 'Asesoria Especializada',
     subtitle: 'Nuestro equipo tecnico te ayuda a encontrar la pieza exacta que necesitas.',
+    backgroundImage: banner3,
   },
 ];
 
