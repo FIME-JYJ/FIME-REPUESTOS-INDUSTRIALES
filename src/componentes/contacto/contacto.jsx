@@ -1,4 +1,5 @@
 import { FiPhone, FiMail, FiMapPin, FiClock, FiSend } from 'react-icons/fi';
+import { useState } from 'react';
 import './contacto.css';
 
 const contactItems = [
@@ -12,7 +13,20 @@ const contactItems = [
   { icon: FiClock, label: 'Horario',   value: 'Lun - Sab: 8:00am - 6:00pm' },
 ];
 
+const contactNumbers = [
+  { 
+    number: '51983507611',
+    display: '+51 983507611'
+  },
+  {  
+    number: '51912195453',
+    display: '+51 912195453'
+  }
+];
+
 export default function Contacto() {
+  const [selectedContact, setSelectedContact] = useState('');
+
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -23,11 +37,18 @@ export default function Contacto() {
     const telefono = formData.get('telefono');
     const ruc = formData.get('ruc');
     const razonSocial = formData.get('razonSocial');
-    const tipoConsulta = formData.get('tipoConsulta');
+    const numeroContacto = formData.get('numeroContacto');
     const mensaje = formData.get('mensaje');
 
-    // Crear el mensaje preformateado
-    let whatsappMessage = ` FIME Respuestos, soy ${nombre} y me gustaría hacer una consulta:\n\n`;
+    // Validar que se haya seleccionado un número de contacto
+    if (!numeroContacto) {
+      alert('Por favor selecciona un número de contacto');
+      return;
+    }
+
+    // Crear el mensaje preformateado para cotización
+    let whatsappMessage = `🔧 *COTIZACIÓN - FIME REPUESTOS*\n\n`;
+    whatsappMessage += `Hola, soy ${nombre} y necesito una cotización:\n\n`;
     
     whatsappMessage += `📋 *DATOS DE CONTACTO:*\n`;
     whatsappMessage += `• Nombre: ${nombre}\n`;
@@ -40,14 +61,17 @@ export default function Contacto() {
       if (ruc) whatsappMessage += `• RUC: ${ruc}\n`;
     }
     
-    whatsappMessage += `\n📞 *CONSULTA:*\n`;
-    if (tipoConsulta) whatsappMessage += `• Tipo: ${tipoConsulta}\n`;
-    if (mensaje) whatsappMessage += `• Detalle: ${mensaje}\n`;
+    whatsappMessage += `\n🛠️ *REPUESTOS SOLICITADOS:*\n`;
+    if (mensaje) {
+      whatsappMessage += `${mensaje}\n`;
+    } else {
+      whatsappMessage += `Por favor proporcione detalles de los repuestos que necesita.\n`;
+    }
     
     whatsappMessage += `\n¡Gracias por su atención!`;
 
-    // Número de WhatsApp (usando el primer número de la lista)
-    const whatsappNumber = '51983507611';
+    // Usar el número seleccionado por el usuario
+    const whatsappNumber = numeroContacto;
     
     // Crear URL de WhatsApp
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
@@ -126,21 +150,28 @@ export default function Contacto() {
               name="razonSocial"
               placeholder="Razón Social (opcional)" 
             />
-            <select className="cform__input cform__select" name="tipoConsulta">
-              <option value="">Tipo de consulta</option>
-              <option value="Consulta de repuesto">Consulta de repuesto</option>
-              <option value="Cotizacion">Cotizacion</option>
-              <option value="Soporte tecnico">Soporte tecnico</option>
-              <option value="Otro">Otro</option>
+            <select 
+              className="cform__input cform__select" 
+              name="numeroContacto"
+              value={selectedContact}
+              onChange={(e) => setSelectedContact(e.target.value)}
+              required
+            >
+              <option value="">Seleccionar número de contacto</option>
+              {contactNumbers.map((contact, index) => (
+                <option key={index} value={contact.number}>
+                  {contact.label} - {contact.display}
+                </option>
+              ))}
             </select>
             <textarea
               className="cform__input cform__textarea"
               name="mensaje"
-              placeholder="Que repuesto necesita? Incluya referencia, marca y modelo del vehiculo."
+              placeholder="Describa los repuestos que necesita. Incluya referencia, marca y modelo del vehículo para una cotización más precisa."
               rows="4"
             />
             <button type="submit" className="cform__btn">
-              <FiSend className="cform__btn-icon" /> Enviar por WhatsApp
+              <FiSend className="cform__btn-icon" /> Solicitar Cotización por WhatsApp
             </button>
           </form>
         </div>
