@@ -1,85 +1,102 @@
 /* ===== BUSCADOR ===== */
+/* Componente de búsqueda de repuestos con filtros */
 .buscador {
-  background: var(--navy);
-  padding: 52px 0;
+  background: var(--navy);    /* Fondo azul oscuro para contraste */
+  padding: 52px 0;           /* Espaciado vertical generoso */
 }
+
+/* Contenedor principal del buscador */
 .buscador__box {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius);
-  padding: 36px 40px;
+  background: rgba(255, 255, 255, 0.05);    /* Fondo semi-transparente */
+  border: 1px solid rgba(255, 255, 255, 0.1);  /* Borde sutil */
+  border-radius: var(--radius);              /* Bordes redondeados */
+  padding: 36px 40px;                       /* Espaciado interno */
 }
+
+/* Título del buscador */
 .buscador__title {
-  color: var(--white);
-  font-family: var(--font-condensed);
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 22px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  color: var(--white);                      /* Texto blanco */
+  font-family: var(--font-condensed);       /* Fuente condensada */
+  font-size: 1.5rem;                       /* Tamaño mediano */
+  font-weight: 700;                        /* Peso bold */
+  margin-bottom: 22px;                     /* Separación de los campos */
+  display: flex;                           /* Layout flexbox */
+  align-items: center;                     /* Alineación vertical */
+  gap: 10px;                              /* Espacio entre icono y texto */
+  text-transform: uppercase;               /* Mayúsculas */
+  letter-spacing: 1px;                    /* Espaciado entre letras */
 }
-.buscador__title-icon { color: var(--cyan); font-size: 1.3rem; }
+.buscador__title-icon { color: var(--cyan); font-size: 1.3rem; }  /* Icono en celeste */
 
+/* Fila de campos de búsqueda */
 .buscador__row {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+  display: flex;           /* Layout horizontal */
+  gap: 12px;              /* Espacio entre campos */
+  flex-wrap: wrap;        /* Permite salto de línea en móviles */
 }
 
+/* Estilos base para campos de entrada */
 .buscador__select,
 .buscador__input {
-  padding: 12px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.09);
-  color: var(--white);
-  font-size: 0.9rem;
-  font-family: var(--font-main);
-  outline: none;
-  transition: border-color 0.2s, background 0.2s;
+  padding: 12px 16px;                           /* Espaciado interno cómodo */
+  border: 1px solid rgba(255, 255, 255, 0.18); /* Borde semi-transparente */
+  border-radius: var(--radius-sm);              /* Bordes redondeados pequeños */
+  background: rgba(255, 255, 255, 0.09);       /* Fondo semi-transparente */
+  color: var(--white);                         /* Texto blanco */
+  font-size: 0.9rem;                          /* Tamaño de fuente legible */
+  font-family: var(--font-main);               /* Fuente consistente */
+  outline: none;                               /* Sin outline por defecto */
+  transition: border-color 0.2s, background 0.2s;  /* Transiciones suaves */
 }
-.buscador__select { flex: 1; min-width: 180px; cursor: pointer; }
-.buscador__input  { flex: 2; min-width: 240px; }
-.buscador__select option { color: var(--text); background: var(--white); }
-.buscador__input::placeholder { color: rgba(255, 255, 255, 0.45); }
+
+/* Tamaños específicos de campos */
+.buscador__select { flex: 1; min-width: 180px; cursor: pointer; }  /* Select más pequeño */
+.buscador__input  { flex: 2; min-width: 240px; }                   /* Input más ancho */
+
+/* Estilos específicos para elementos */
+.buscador__select option { color: var(--text); background: var(--white); }  /* Opciones del select */
+.buscador__input::placeholder { color: rgba(255, 255, 255, 0.45); }         /* Placeholder semi-transparente */
+
+/* Estados de focus para accesibilidad */
 .buscador__select:focus,
 .buscador__input:focus {
-  border-color: var(--cyan);
-  background: rgba(255, 255, 255, 0.13);
+  border-color: var(--cyan);                    /* Borde celeste al enfocar */
+  background: rgba(255, 255, 255, 0.13);       /* Fondo más opaco */
 }
 
+/* Botón de búsqueda */
 .buscador__btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 26px;
-  background: var(--cyan);
-  color: var(--white);
-  border: 2px solid var(--cyan);
-  border-radius: var(--radius-sm);
-  font-weight: 700;
-  font-size: 0.9rem;
-  font-family: var(--font-main);
-  cursor: pointer;
-  transition: all 0.22s;
-  white-space: nowrap;
-  flex-shrink: 0;
+  display: inline-flex;                         /* Layout flexbox inline */
+  align-items: center;                         /* Centrado vertical */
+  gap: 8px;                                   /* Espacio entre icono y texto */
+  padding: 12px 26px;                         /* Espaciado interno */
+  background: var(--cyan);                    /* Fondo celeste */
+  color: var(--white);                        /* Texto blanco */
+  border: 2px solid var(--cyan);              /* Borde del mismo color */
+  border-radius: var(--radius-sm);            /* Bordes redondeados */
+  font-weight: 700;                           /* Texto bold */
+  font-size: 0.9rem;                          /* Tamaño legible */
+  font-family: var(--font-main);              /* Fuente consistente */
+  cursor: pointer;                            /* Cursor de mano */
+  transition: all 0.22s;                      /* Transición suave */
+  white-space: nowrap;                        /* Evita salto de línea */
+  flex-shrink: 0;                            /* No se encoge */
 }
+
+/* Estado hover del botón */
 .buscador__btn:hover {
-  background: var(--cyan-dark);
-  border-color: var(--cyan-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 170, 255, 0.38);
+  background: var(--cyan-dark);               /* Fondo más oscuro */
+  border-color: var(--cyan-dark);             /* Borde más oscuro */
+  transform: translateY(-2px);                /* Elevación sutil */
+  box-shadow: 0 6px 20px rgba(0, 170, 255, 0.38);  /* Sombra celeste */
 }
-.buscador__btn-icon { font-size: 1rem; }
+.buscador__btn-icon { font-size: 1rem; }     /* Tamaño del icono */
 
 /* ===== RESPONSIVE ===== */
+/* Adaptaciones para dispositivos móviles */
 @media (max-width: 768px) {
-  .buscador__box { padding: 24px 20px; }
-  .buscador__row { flex-direction: column; }
+  .buscador__box { padding: 24px 20px; }      /* Menos padding en móviles */
+  .buscador__row { flex-direction: column; }   /* Campos en columna */
   .buscador__select,
-  .buscador__input { min-width: 100%; }
+  .buscador__input { min-width: 100%; }        /* Ancho completo */
 }

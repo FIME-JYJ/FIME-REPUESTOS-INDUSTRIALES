@@ -1,110 +1,139 @@
 /* ===== FOOTER ===== */
+/* Pie de página con información de la empresa y enlaces */
 .footer {
-  background: var(--navy-dark);
-  color: rgba(255, 255, 255, 0.7);
+  background: var(--navy-dark);           /* Fondo azul muy oscuro */
+  color: rgba(255, 255, 255, 0.7);       /* Texto blanco semi-transparente */
 }
 
+/* Layout de 4 columnas para el contenido del footer */
 .footer__grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.4fr;
-  gap: 44px;
-  padding: 60px 20px 48px;
+  display: grid;                          /* Layout de cuadrícula */
+  grid-template-columns: 2fr 1fr 1fr 1.4fr;  /* Columnas de diferentes tamaños */
+  gap: 44px;                             /* Espacio entre columnas */
+  padding: 60px 20px 48px;               /* Espaciado interno */
 }
 
-/* Brand col */
+/* === COLUMNA DE MARCA === */
+/* Logo y descripción de la empresa */
 .footer__brand {}
+
+/* Logo de la empresa */
 .footer__logo {
-  display: flex;
-  flex-direction: column;
-  line-height: 1;
-  margin-bottom: 14px;
+  display: flex;                          /* Layout flexbox */
+  flex-direction: column;                 /* Dirección vertical */
+  line-height: 1;                        /* Sin espaciado entre líneas */
+  margin-bottom: 14px;                   /* Separación inferior */
 }
 .footer__logo-fime {
-  font-family: var(--font-condensed);
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--white);
-  letter-spacing: -1px;
-  font-style: italic;
+  font-family: var(--font-condensed);     /* Fuente condensada */
+  font-size: 2rem;                       /* Tamaño grande */
+  font-weight: 800;                      /* Peso extra bold */
+  color: var(--white);                   /* Texto blanco */
+  letter-spacing: -1px;                  /* Espaciado negativo entre letras */
+  font-style: italic;                    /* Estilo itálico */
 }
 .footer__logo-rep {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--cyan);
+  font-size: 0.85rem;                    /* Tamaño pequeño */
+  font-weight: 700;                      /* Peso bold */
+  color: var(--cyan);                    /* Color celeste */
 }
+
+/* Descripción de la empresa */
 .footer__desc {
-  font-size: 0.85rem;
-  line-height: 1.75;
-  margin-bottom: 20px;
+  font-size: 0.85rem;                    /* Tamaño pequeño */
+  line-height: 1.75;                     /* Espaciado generoso entre líneas */
+  margin-bottom: 20px;                   /* Separación inferior */
 }
-.footer__social { display: flex; gap: 10px; }
+
+/* Redes sociales */
+.footer__social { display: flex; gap: 10px; }  /* Layout horizontal con espacio */
 .footer__social-link {
-  width: 36px; height: 36px;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 1rem;
-  transition: all 0.2s;
+  width: 36px; height: 36px;             /* Tamaño fijo cuadrado */
+  background: rgba(255, 255, 255, 0.07); /* Fondo blanco semi-transparente */
+  border: 1px solid rgba(255, 255, 255, 0.12);  /* Borde semi-transparente */
+  border-radius: var(--radius-sm);        /* Bordes redondeados */
+  display: flex;                          /* Layout flexbox */
+  align-items: center;                    /* Centrado vertical */
+  justify-content: center;                /* Centrado horizontal */
+  color: rgba(255, 255, 255, 0.65);      /* Color gris claro */
+  font-size: 1rem;                       /* Tamaño del icono */
+  transition: all 0.2s;                   /* Transición suave */
 }
+
+/* Estado hover de redes sociales */
 .footer__social-link:hover {
-  background: var(--cyan);
-  border-color: var(--cyan);
-  color: var(--white);
-  transform: translateY(-2px);
+  background: var(--cyan);               /* Fondo celeste */
+  border-color: var(--cyan);             /* Borde celeste */
+  color: var(--white);                   /* Icono blanco */
+  transform: translateY(-2px);           /* Elevación sutil */
 }
 
-/* Cols */
+/* === COLUMNAS DE ENLACES === */
+/* Secciones de navegación y enlaces útiles */
 .footer__col {}
+
+/* Títulos de las columnas */
 .footer__title {
-  color: var(--white);
-  font-size: 0.9rem;
-  font-weight: 700;
-  margin-bottom: 16px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid var(--cyan);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  color: var(--white);                    /* Texto blanco */
+  font-size: 0.9rem;                      /* Tamaño mediano */
+  font-weight: 700;                       /* Peso bold */
+  margin-bottom: 16px;                    /* Separación inferior */
+  padding-bottom: 8px;                    /* Espaciado interno inferior */
+  border-bottom: 2px solid var(--cyan);   /* Línea inferior celeste */
+  text-transform: uppercase;              /* Mayúsculas */
+  letter-spacing: 0.5px;                  /* Espaciado entre letras */
 }
+
+/* Enlaces del footer */
 .footer__link {
-  display: block;
-  font-size: 0.84rem;
-  padding: 5px 0;
-  color: rgba(255, 255, 255, 0.6);
-  transition: color 0.15s, padding-left 0.15s;
+  display: block;                         /* Elemento de bloque */
+  font-size: 0.84rem;                     /* Tamaño pequeño */
+  padding: 5px 0;                        /* Espaciado vertical */
+  color: rgba(255, 255, 255, 0.6);       /* Gris claro */
+  transition: color 0.15s, padding-left 0.15s;  /* Transiciones suaves */
 }
-.footer__link:hover { color: var(--cyan); padding-left: 6px; }
+.footer__link:hover { 
+  color: var(--cyan);                     /* Color celeste en hover */
+  padding-left: 6px;                     /* Desplazamiento hacia la derecha */
+}
 
-/* Contact items */
+/* === INFORMACIÓN DE CONTACTO === */
+/* Items de contacto con iconos */
 .footer__contact-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: 0.84rem;
-  color: rgba(255, 255, 255, 0.6);
-  padding: 6px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;                          /* Layout horizontal */
+  align-items: flex-start;                /* Alineación superior */
+  gap: 10px;                             /* Espacio entre icono y texto */
+  font-size: 0.84rem;                     /* Tamaño pequeño */
+  color: rgba(255, 255, 255, 0.6);       /* Gris claro */
+  padding: 6px 0;                        /* Espaciado vertical */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);  /* Línea separadora sutil */
 }
-.footer__contact-item:last-child { border-bottom: none; }
-.footer__contact-icon { color: var(--cyan); flex-shrink: 0; margin-top: 2px; }
+.footer__contact-item:last-child { border-bottom: none; }  /* Sin línea en el último item */
+.footer__contact-icon { 
+  color: var(--cyan);                     /* Icono celeste */
+  flex-shrink: 0;                        /* No se encoge */
+  margin-top: 2px;                       /* Ajuste de alineación */
+}
 
-/* Bottom bar */
+/* === BARRA INFERIOR === */
+/* Copyright y información legal */
 .footer__bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
-  padding: 20px;
-  text-align: center;
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.35);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);  /* Línea superior sutil */
+  padding: 20px;                          /* Espaciado interno */
+  text-align: center;                     /* Texto centrado */
+  font-size: 0.8rem;                      /* Tamaño pequeño */
+  color: rgba(255, 255, 255, 0.35);       /* Gris muy claro */
 }
-.footer__bottom-sub { margin-top: 4px; font-size: 0.75rem; }
+.footer__bottom-sub { 
+  margin-top: 4px;                        /* Separación superior */
+  font-size: 0.75rem;                     /* Tamaño más pequeño */
+}
 
 /* ===== RESPONSIVE ===== */
+/* Adaptaciones para diferentes tamaños de pantalla */
 @media (max-width: 1024px) {
-  .footer__grid { grid-template-columns: 1fr 1fr; }
+  .footer__grid { grid-template-columns: 1fr 1fr; }  /* 2 columnas en tablets */
 }
 @media (max-width: 560px) {
-  .footer__grid { grid-template-columns: 1fr; gap: 28px; }
+  .footer__grid { grid-template-columns: 1fr; gap: 28px; }  /* 1 columna en móviles */
 }

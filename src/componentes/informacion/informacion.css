@@ -1,91 +1,111 @@
-/* ===== MARCAS ===== */
+/* ===== SECCIÓN DE MARCAS ===== */
+/* Carrusel de logos de marcas de camiones */
 .marcas .section-title {
-  color: #90e0ef;
+  color: #90e0ef;                       /* Título en celeste claro */
 }
 .marcas {
-  background: linear-gradient(135deg, #012a4a 0%, #013a63 100%);
-  padding: 80px 0;
-  overflow: hidden;
+  background: linear-gradient(135deg, #012a4a 0%, #013a63 100%);  /* Gradiente azul oscuro */
+  padding: 80px 0;                      /* Espaciado vertical */
+  overflow: hidden;                     /* Oculta el desbordamiento del carrusel */
 }
+/* Contenedor del carrusel con máscara de desvanecimiento */
 .marcas__track-wrap {
-  overflow: hidden;
-  margin-top: 8px;
+  overflow: hidden;                     /* Oculta el desbordamiento */
+  margin-top: 8px;                     /* Separación del título */
+  /* Máscara de desvanecimiento en los bordes */
   -webkit-mask-image: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 95%, rgba(0,0,0,0) 100%);
   mask-image: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 95%, rgba(0,0,0,0) 100%);
 }
+
+/* Pista del carrusel que se mueve */
 .marcas__track {
-  display: flex;
-  gap: 16px;
-  width: max-content;
-  animation: marquee 22s linear infinite;
+  display: flex;                        /* Layout horizontal */
+  gap: 16px;                           /* Espacio entre elementos */
+  width: max-content;                  /* Ancho según contenido */
+  animation: marquee 22s linear infinite;  /* Animación de desplazamiento */
 }
+
+/* Animación de marquesina */
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from { transform: translateX(0); }     /* Posición inicial */
+  to   { transform: translateX(-50%); }  /* Se mueve la mitad del ancho */
 }
+/* Chips individuales de marcas */
 .marcas__chip {
-  background: var(--white);
-  border: 1px solid #90e0ef;
-  color: #012a4a;
-  font-weight: 700;
-  font-size: 0.88rem;
-  padding: 16px 40px;
-  border-radius: 40px;
-  white-space: nowrap;
-  box-shadow: var(--shadow);
-  transition: border-color 0.2s, color 0.2s, background 0.2s, transform 0.2s;
-  letter-spacing: 0.3px;
-  cursor: default;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-  min-width: 180px;
+  background: var(--white);             /* Fondo blanco */
+  border: 1px solid #90e0ef;           /* Borde celeste claro */
+  color: #012a4a;                      /* Texto azul oscuro */
+  font-weight: 700;                    /* Texto bold */
+  font-size: 0.88rem;                  /* Tamaño legible */
+  padding: 16px 40px;                  /* Espaciado interno generoso */
+  border-radius: 40px;                 /* Bordes muy redondeados */
+  white-space: nowrap;                 /* Sin salto de línea */
+  box-shadow: var(--shadow);           /* Sombra sutil */
+  transition: border-color 0.2s, color 0.2s, background 0.2s, transform 0.2s;  /* Transiciones suaves */
+  letter-spacing: 0.3px;               /* Espaciado entre letras */
+  cursor: default;                     /* Cursor normal */
+  display: inline-flex;                /* Layout flexbox inline */
+  align-items: center;                 /* Centrado vertical */
+  justify-content: center;             /* Centrado horizontal */
+  position: relative;                  /* Para z-index */
+  z-index: 1;                         /* Capa base */
+  min-width: 180px;                   /* Ancho mínimo */
 }
+
+/* Estado hover de los chips */
 .marcas__chip:hover { 
-  border-color: #013a63;
-  color: #013a63;
-  background: #e0f7ff;
-  transform: translateY(-2px);
-  z-index: 2;
+  border-color: #013a63;               /* Borde azul más oscuro */
+  color: #013a63;                      /* Texto azul más oscuro */
+  background: #e0f7ff;                 /* Fondo celeste muy claro */
+  transform: translateY(-2px);         /* Elevación sutil */
+  z-index: 2;                         /* Por encima de otros chips */
 }
 
-/* ===== ABOUT ===== */
-.about { background: var(--white); }
+/* ===== SECCIÓN ABOUT ===== */
+/* Información sobre la empresa con tarjeta visual */
+.about { background: var(--white); }   /* Fondo blanco */
+
+/* Layout de dos columnas: texto e imagen */
 .about__inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: center;
+  display: grid;                        /* Layout de cuadrícula */
+  grid-template-columns: 1fr 1fr;       /* Dos columnas iguales */
+  gap: 64px;                           /* Espacio entre columnas */
+  align-items: center;                 /* Centrado vertical */
 }
-.about__p {
-  color: var(--gray-600);
-  margin-bottom: 16px;
-  line-height: 1.8;
-  font-size: 0.97rem;
-}
-strong { color: var(--navy); }
 
+/* Párrafos de texto */
+.about__p {
+  color: var(--gray-600);               /* Texto gris */
+  margin-bottom: 16px;                 /* Separación entre párrafos */
+  line-height: 1.8;                    /* Espaciado generoso entre líneas */
+  font-size: 0.97rem;                  /* Tamaño legible */
+}
+strong { color: var(--navy); }         /* Texto en negrita azul */
+
+/* Lista de características con checkmarks */
 .about__features {
-  margin-top: 26px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  margin-top: 26px;                     /* Separación superior */
+  display: flex;                        /* Layout flexbox */
+  flex-direction: column;               /* Dirección vertical */
+  gap: 12px;                           /* Espacio entre elementos */
 }
+
+/* Item individual de característica */
 .about__feature {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: 0.93rem;
-  color: var(--gray-800);
-  font-weight: 500;
+  display: flex;                        /* Layout horizontal */
+  align-items: flex-start;              /* Alineación superior */
+  gap: 10px;                           /* Espacio entre icono y texto */
+  font-size: 0.93rem;                  /* Tamaño legible */
+  color: var(--gray-800);               /* Texto gris oscuro */
+  font-weight: 500;                    /* Peso medio */
 }
+
+/* Icono de check */
 .about__check {
-  color: var(--cyan);
-  font-size: 1.1rem;
-  flex-shrink: 0;
-  margin-top: 2px;
+  color: var(--cyan);                   /* Color celeste */
+  font-size: 1.1rem;                   /* Tamaño del icono */
+  flex-shrink: 0;                      /* No se encoge */
+  margin-top: 2px;                     /* Ajuste de alineación */
 }
 
 /* Visual card */

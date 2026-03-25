@@ -1,51 +1,48 @@
-/* ===== HERO ===== */
+/* ===== SECCIÓN HERO ===== */
+/* Banner principal con slider de imágenes y contenido */
 .hero {
-  position: relative;
-  height: 560px;
-  overflow: hidden;
+  position: relative;                   /* Para posicionar elementos internos */
+  height: 560px;                       /* Altura fija */
+  overflow: hidden;                     /* Oculta contenido que se desborde */
 }
+/* Slides individuales del hero */
 .hero__slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 1.2s ease-in-out;
-  display: flex;
-  align-items: center;
-  background: #0a1a4d;
-  /* Layout: imagen a la izquierda, contenido a la derecha */
-  background-size: cover, cover;
-  background-position: center, center;
-  background-repeat: no-repeat, no-repeat;
-  /* Asegurar que las imágenes se vean bien en todos los dispositivos */
-  background-attachment: scroll;
+  position: absolute;                   /* Posicionamiento absoluto para superposición */
+  inset: 0;                            /* Ocupa todo el contenedor */
+  opacity: 0;                          /* Invisible por defecto */
+  transition: opacity 1.2s ease-in-out; /* Transición suave entre slides */
+  display: flex;                       /* Layout flexbox */
+  align-items: center;                 /* Centrado vertical */
+  background: #0a1a4d;                 /* Fondo azul oscuro por defecto */
+  /* Configuración de imagen de fondo */
+  background-size: cover, cover;        /* Cubre todo el contenedor */
+  background-position: center, center;  /* Centrada */
+  background-repeat: no-repeat, no-repeat;  /* Sin repetición */
+  background-attachment: scroll;        /* Se mueve con el scroll */
 }
-.hero__slide--active { opacity: 1; z-index: 1; }
-.hero__slide:nth-child(2) { background: #0a1a4d; }
-.hero__slide:nth-child(3) { 
-  background: #0a1a4d; 
-}
+.hero__slide--active { opacity: 1; z-index: 1; }  /* Slide activo visible */
+.hero__slide:nth-child(2) { background: #0a1a4d; }  /* Fondo específico para slide 2 */
+.hero__slide:nth-child(3) { background: #0a1a4d; }  /* Fondo específico para slide 3 */
 
-/* Sombra adicional para el banner 3 - simétrica al gradiente derecho */
+/* Sombra adicional para el slide 3 */
 .hero__slide:nth-child(3)::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 50%;
-  height: 100%;
-  z-index: 1;
-  background: linear-gradient(to right, 
-    #0a1a4d 0%,
-    #0a1a4d 5%,
-    rgba(10, 26, 77, 0.5) 15%,
-    transparent 100%
+  content: '';                          /* Contenido vacío */
+  position: absolute;                   /* Posicionamiento absoluto */
+  left: 0; top: 0;                     /* Esquina superior izquierda */
+  width: 50%; height: 100%;            /* Mitad izquierda */
+  z-index: 1;                          /* Por encima del fondo */
+  background: linear-gradient(to right,  /* Gradiente hacia la derecha */
+    #0a1a4d 0%,                        /* Azul sólido al inicio */
+    #0a1a4d 5%,                        /* Azul sólido */
+    rgba(10, 26, 77, 0.5) 15%,         /* Semi-transparente */
+    transparent 100%                    /* Transparente al final */
   );
-  pointer-events: none;
+  pointer-events: none;                 /* No interfiere con clics */
 }
 
-/* Eliminar overlay que causa el fondo gris */
+/* Overlay eliminado para evitar fondo gris */
 .hero__overlay {
-  display: none;
+  display: none;                        /* No se muestra */
 }
 
 /* Gradientes alrededor de los camiones */
