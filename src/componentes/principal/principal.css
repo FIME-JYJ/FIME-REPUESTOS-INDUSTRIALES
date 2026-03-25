@@ -13,8 +13,8 @@
   align-items: center;
   background: #0a1a4d;
   /* Layout: imagen a la izquierda, contenido a la derecha */
-  background-size: 50% 100%, 100% 100%;
-  background-position: left center, center center;
+  background-size: cover, cover;
+  background-position: center, center;
   background-repeat: no-repeat, no-repeat;
   /* Asegurar que las imágenes se vean bien en todos los dispositivos */
   background-attachment: scroll;
@@ -368,7 +368,8 @@
   }
   
   .hero__slide {
-    background-size: 40% 100%, 100% 100%;
+    background-size: cover, cover !important;
+    background-position: center, center !important;
   }
   
   .hero__image-gradients {
@@ -379,7 +380,7 @@
 @media (max-width: 768px) {
   .hero { 
     height: auto; 
-    min-height: 500px; 
+    min-height: 550px; 
   }
   
   /* Layout móvil: imagen de fondo completa con overlay */
@@ -395,10 +396,11 @@
     inset: 0;
     background: linear-gradient(
       to top,
-      rgba(10, 26, 77, 0.95) 0%,
-      rgba(10, 26, 77, 0.8) 30%,
-      rgba(10, 26, 77, 0.6) 50%,
-      rgba(10, 26, 77, 0.3) 70%,
+      rgba(10, 26, 77, 0.9) 0%,
+      rgba(10, 26, 77, 0.75) 25%,
+      rgba(10, 26, 77, 0.5) 45%,
+      rgba(10, 26, 77, 0.25) 65%,
+      rgba(10, 26, 77, 0.1) 80%,
       transparent 100%
     );
     z-index: 1;
@@ -407,7 +409,7 @@
   .hero__content {
     margin-left: 0;
     width: 100%;
-    padding: 30px 20px 40px;
+    padding: 40px 20px 50px;
     min-height: auto;
     background: transparent !important;
     position: relative;
@@ -443,11 +445,21 @@
 
 @media (max-width: 600px) {
   .hero { 
-    min-height: 450px; 
+    min-height: 500px; 
   }
   
   .hero__title { 
-    font-size: 1.9rem; 
+    font-size: 2rem; 
+    line-height: 1.1;
+  }
+  
+  .hero__subtitle { 
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+  
+  .hero__content {
+    padding: 35px 18px 45px;
   }
   
   .hero__subtitle { 
@@ -585,7 +597,12 @@
 /* Mejoras para orientación landscape en móviles */
 @media (max-width: 768px) and (orientation: landscape) {
   .hero {
-    min-height: 350px;
+    min-height: 400px;
+  }
+  
+  .hero__slide {
+    background-size: cover !important;
+    background-position: center center !important;
   }
   
   .hero__content {
@@ -610,6 +627,22 @@
   .btn {
     padding: 10px 20px;
     font-size: 0.85rem;
+  }
+}
+
+/* Optimización adicional para imágenes en móviles */
+@media (max-width: 768px) {
+  .hero__slide {
+    /* Asegurar que las imágenes mantengan buena calidad */
+    background-attachment: scroll;
+    background-blend-mode: normal;
+  }
+  
+  /* Mejorar contraste del texto sobre las imágenes */
+  .hero__title,
+  .hero__subtitle,
+  .hero__eyebrow {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
   }
 }
 
