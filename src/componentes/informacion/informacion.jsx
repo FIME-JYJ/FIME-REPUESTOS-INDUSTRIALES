@@ -7,7 +7,7 @@ import InternationalLogo from '../../img/International.jpg';
 import KenworthLogo from '../../img/Kenworth.jpg';
 import MackLogo from '../../img/Mack.jpg';
 import MercedesBenzLogo from '../../img/MercedesBenz.png';
-import VolvoLogo from '../../img/Volvo.webp';
+import VolvoLogo from '../../img/Volvo.png';
 import WesternStarLogo from '../../img/WesternStar.png';
 
 const brands = [
