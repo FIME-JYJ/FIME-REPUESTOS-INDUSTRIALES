@@ -3,8 +3,8 @@ import { FiSearch } from 'react-icons/fi';
 import './buscador.css';
 
 const brands = [
-  'Kenworth', 'Freightliner', 'International', 'Mercedes Benz',
-  'Mack', 'Volvo',
+  'KSP', 'ELRI', 'MAHLE', 'Mercedes Benz',
+  'Mack', 'Volvo', 'Detroit',
 ];
 
 const types = [
