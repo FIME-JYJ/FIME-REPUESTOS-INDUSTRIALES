@@ -1,0 +1,290 @@
+/* ===== SECCIÓN DE MARCAS ===== */
+/* Carrusel de logos de marcas de camiones */
+.marcas .section-title {
+  color: #90e0ef;                       /* Título en celeste claro */
+}
+.marcas {
+  background: linear-gradient(135deg, #012a4a 0%, #013a63 100%);  /* Gradiente azul oscuro */
+  padding: 80px 0;                      /* Espaciado vertical */
+  overflow: hidden;                     /* Oculta el desbordamiento del carrusel */
+}
+/* Contenedor del carrusel con máscara de desvanecimiento */
+.marcas__track-wrap {
+  overflow: hidden;                     /* Oculta el desbordamiento */
+  margin-top: 8px;                     /* Separación del título */
+  /* Máscara de desvanecimiento en los bordes */
+  -webkit-mask-image: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 95%, rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 95%, rgba(0,0,0,0) 100%);
+}
+
+/* Pista del carrusel que se mueve */
+.marcas__track {
+  display: flex;                        /* Layout horizontal */
+  gap: 16px;                           /* Espacio entre elementos */
+  width: max-content;                  /* Ancho según contenido */
+  animation: marquee 22s linear infinite;  /* Animación de desplazamiento */
+}
+
+/* Animación de marquesina */
+@keyframes marquee {
+  from { transform: translateX(0); }     /* Posición inicial */
+  to   { transform: translateX(-50%); }  /* Se mueve la mitad del ancho */
+}
+/* Chips individuales de marcas */
+.marcas__chip {
+  background: var(--white);             /* Fondo blanco */
+  border: 1px solid #90e0ef;           /* Borde celeste claro */
+  color: #012a4a;                      /* Texto azul oscuro */
+  font-weight: 700;                    /* Texto bold */
+  font-size: 0.88rem;                  /* Tamaño legible */
+  padding: 16px 40px;                  /* Espaciado interno generoso */
+  border-radius: 40px;                 /* Bordes muy redondeados */
+  white-space: nowrap;                 /* Sin salto de línea */
+  box-shadow: var(--shadow);           /* Sombra sutil */
+  transition: border-color 0.2s, color 0.2s, background 0.2s, transform 0.2s;  /* Transiciones suaves */
+  letter-spacing: 0.3px;               /* Espaciado entre letras */
+  cursor: default;                     /* Cursor normal */
+  display: inline-flex;                /* Layout flexbox inline */
+  align-items: center;                 /* Centrado vertical */
+  justify-content: center;             /* Centrado horizontal */
+  position: relative;                  /* Para z-index */
+  z-index: 1;                         /* Capa base */
+  min-width: 180px;                   /* Ancho mínimo */
+}
+
+/* Estado hover de los chips */
+.marcas__chip:hover { 
+  border-color: #013a63;               /* Borde azul más oscuro */
+  color: #013a63;                      /* Texto azul más oscuro */
+  background: #e0f7ff;                 /* Fondo celeste muy claro */
+  transform: translateY(-2px);         /* Elevación sutil */
+  z-index: 2;                         /* Por encima de otros chips */
+}
+
+/* ===== SECCIÓN ABOUT ===== */
+/* Información sobre la empresa con tarjeta visual */
+.about { background: var(--white); }   /* Fondo blanco */
+
+/* Layout de dos columnas: texto e imagen */
+.about__inner {
+  display: grid;                        /* Layout de cuadrícula */
+  grid-template-columns: 1fr 1fr;       /* Dos columnas iguales */
+  gap: 64px;                           /* Espacio entre columnas */
+  align-items: center;                 /* Centrado vertical */
+}
+
+/* Párrafos de texto */
+.about__p {
+  color: var(--gray-600);               /* Texto gris */
+  margin-bottom: 16px;                 /* Separación entre párrafos */
+  line-height: 1.8;                    /* Espaciado generoso entre líneas */
+  font-size: 0.97rem;                  /* Tamaño legible */
+}
+strong { color: var(--navy); }         /* Texto en negrita azul */
+
+/* Lista de características con checkmarks */
+.about__features {
+  margin-top: 26px;                     /* Separación superior */
+  display: flex;                        /* Layout flexbox */
+  flex-direction: column;               /* Dirección vertical */
+  gap: 12px;                           /* Espacio entre elementos */
+}
+
+/* Item individual de característica */
+.about__feature {
+  display: flex;                        /* Layout horizontal */
+  align-items: flex-start;              /* Alineación superior */
+  gap: 10px;                           /* Espacio entre icono y texto */
+  font-size: 0.93rem;                  /* Tamaño legible */
+  color: var(--gray-800);               /* Texto gris oscuro */
+  font-weight: 500;                    /* Peso medio */
+}
+
+/* Icono de check */
+.about__check {
+  color: var(--cyan);                   /* Color celeste */
+  font-size: 1.1rem;                   /* Tamaño del icono */
+  flex-shrink: 0;                      /* No se encoge */
+  margin-top: 2px;                     /* Ajuste de alineación */
+}
+
+/* Visual card */
+.about__visual { display: flex; align-items: center; justify-content: center; }
+.about__card {
+  background: linear-gradient(145deg, var(--navy-dark), var(--navy), #1b4a90);
+  border-radius: var(--radius);
+  padding: 52px 40px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.about__card::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 240px; height: 240px;
+  background: radial-gradient(circle, rgba(0,170,255,0.22), transparent 70%);
+  border-radius: 50%;
+}
+.about__card::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: -40px;
+  width: 160px; height: 160px;
+  background: radial-gradient(circle, rgba(0,170,255,0.1), transparent 70%);
+  border-radius: 50%;
+}
+.about__logo {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3px solid rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+  justify-content: center;
+  margin: 0 auto 32px;
+}
+.about__logo-fime {
+  font-family: var(--font-condensed), sans-serif;
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -2px;
+  font-style: italic;
+  line-height: 1;
+}
+.about__logo-rep {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--cyan);
+  margin-top: 4px;
+}
+.about__stats-mini {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.about__stat { text-align: center; }
+.about__stat-num {
+  font-family: var(--font-condensed), sans-serif;
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--white);
+  display: block;
+}
+.about__stat-lbl {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  display: block;
+  margin-top: 2px;
+}
+.about__stat-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .about__inner { grid-template-columns: 1fr; gap: 40px; }
+  .about__visual { order: -1; }
+  .about__card { max-width: 100%; padding: 36px 28px; }
+}
+@media (max-width: 480px) {
+  .marcas__logo-img { height: 64px; }
+  .marcas__chip { padding: 10px 18px; }
+}
+
+/* ── Sección marcas ── */
+.marcas {
+  padding: 60px 0;
+  background: linear-gradient(135deg, #012a4a 0%, #013a63 100%);
+}
+
+/* Barra blanca contenedora */
+.marcas__track-wrap {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px 0;
+  margin: 32px auto;
+  max-width: 90%;
+  overflow: hidden;
+}
+
+/* Pista que se mueve */
+.marcas__track {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  width: max-content;
+  animation: scroll-brands 20s linear infinite;
+}
+.marcas__track:has(.marcas__chip:hover) {
+  animation-play-state: paused;
+}
+@keyframes scroll-brands {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marcas__chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  padding: 0;
+}
+.marcas__chip:hover,
+.marcas__chip:focus {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+.marcas__logo-img {
+  height: 90px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: grayscale(20%);
+  background: none !important;
+  border: none !important;
+  outline: none !important;
+}
+.marcas__chip:hover .marcas__logo-img {
+  filter: grayscale(0%) drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.2));
+}
+.marcas__logo-img.freightliner-logo {
+  transform: scale(1.7);
+}
+.marcas__chip:hover .marcas__logo-img.freightliner-logo {
+  transform: scale(2.2);
+}
+.marcas__logo-img.volvo-logo {
+  transform: scale(1.25);
+}
+.marcas__chip:hover .marcas__logo-img.volvo-logo {
+  transform: scale(1.6);
+}
+.marcas__logo-img.international-logo {
+  transform: scale(1.25);
+}
+.marcas__chip:hover .marcas__logo-img.international-logo {
+  transform: scale(1.6);
+}
+.marcas__chip:hover .marcas__logo-img:not(.freightliner-logo):not(.volvo-logo):not(.international-logo) {
+  transform: scale(1.3);
+}

@@ -1,37 +1,105 @@
-/* ===== HERO ===== */
+/* ===== SECCIÓN HERO ===== */
+/* Banner principal con slider de imágenes y contenido */
 .hero {
-  position: relative;
-  height: 560px;
-  overflow: hidden;
+  position: relative;                   /* Para posicionar elementos internos */
+  height: 560px;                       /* Altura fija */
+  overflow: hidden;                     /* Oculta contenido que se desborde */
 }
+/* Slides individuales del hero */
 .hero__slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 0.9s ease;
-  display: flex;
-  align-items: center;
-  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 55%, #1b4a90 100%);
+  position: absolute;                   /* Posicionamiento absoluto para superposición */
+  inset: 0;                            /* Ocupa todo el contenedor */
+  opacity: 0;                          /* Invisible por defecto */
+  transition: opacity 1.2s ease-in-out; /* Transición suave entre slides */
+  display: flex;                       /* Layout flexbox */
+  align-items: center;                 /* Centrado vertical */
+  background: #0a1a4d;                 /* Fondo azul oscuro por defecto */
+  /* Configuración de imagen de fondo */
+  background-size: cover, cover;        /* Cubre todo el contenedor */
+  background-position: center, center;  /* Centrada */
+  background-repeat: no-repeat, no-repeat;  /* Sin repetición */
+  background-attachment: scroll;        /* Se mueve con el scroll */
 }
-.hero__slide--active { opacity: 1; z-index: 1; }
-.hero__slide:nth-child(2) { background: linear-gradient(135deg, #0d1f5e 0%, var(--navy) 60%, #005faa 100%); }
-.hero__slide:nth-child(3) { background: linear-gradient(135deg, #060f30 0%, var(--navy-dark) 55%, var(--navy) 100%); }
+.hero__slide--active { opacity: 1; z-index: 1; }  /* Slide activo visible */
+.hero__slide:nth-child(2) { background: #0a1a4d; }  /* Fondo específico para slide 2 */
+.hero__slide:nth-child(3) { background: #0a1a4d; }  /* Fondo específico para slide 3 */
 
+/* Sombra adicional para el slide 3 */
+.hero__slide:nth-child(3)::before {
+  content: '';                          /* Contenido vacío */
+  position: absolute;                   /* Posicionamiento absoluto */
+  left: 0; top: 0;                     /* Esquina superior izquierda */
+  width: 50%; height: 100%;            /* Mitad izquierda */
+  z-index: 1;                          /* Por encima del fondo */
+  background: linear-gradient(to right,  /* Gradiente hacia la derecha */
+    #0a1a4d 0%,                        /* Azul sólido al inicio */
+    #0a1a4d 5%,                        /* Azul sólido */
+    rgba(10, 26, 77, 0.5) 15%,         /* Semi-transparente */
+    transparent 100%                    /* Transparente al final */
+  );
+  pointer-events: none;                 /* No interfiere con clics */
+}
+
+/* Overlay eliminado para evitar fondo gris */
 .hero__overlay {
+  display: none;                        /* No se muestra */
+}
+
+/* Gradientes alrededor de los camiones */
+.hero__image-gradients {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse at 72% 50%, rgba(0, 170, 255, 0.16) 0%, transparent 60%),
-    radial-gradient(ellipse at 10% 80%, rgba(26, 47, 110, 0.4) 0%, transparent 50%);
+  z-index: 1;
+  background: 
+    /* Gradiente oval solo en el área de la imagen (izquierda) */
+    radial-gradient(ellipse 700px 400px at 25% 55%, 
+      transparent 0%, 
+      transparent 40%, 
+      rgba(10, 26, 77, 0.1) 60%,
+      rgba(10, 26, 77, 0.3) 75%,
+      rgba(10, 26, 77, 0.6) 85%,
+      rgba(10, 26, 77, 0.8) 92%,
+      #0a1a4d 100%
+    );
+  pointer-events: none;
+  /* Limitar el gradiente solo al área de la imagen */
+  width: 50%;
+}
+
+/* Marco circular difuminado para la imagen */
+.hero__image-frame {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 1;
+  background: 
+    radial-gradient(circle 550px at 25% 50%, transparent 50%, rgba(13, 31, 94, 0.1) 60%, rgba(13, 31, 94, 0.4) 75%, rgba(13, 31, 94, 0.8) 88%, #0d1f5e 95%);
+  pointer-events: none;
 }
 
 .hero__content {
   position: relative;
   z-index: 2;
-  animation: heroIn 0.65s ease both;
+  animation: heroIn 0.8s ease-out both;
+  /* Posicionar contenido a la derecha completamente sobre fondo azul */
+  margin-left: 50%;
+  width: 50%;
+  background: transparent !important;
+  padding: 60px 40px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Asegurar que el container no tenga fondo blanco */
+.hero .container {
+  background: transparent !important;
 }
 @keyframes heroIn {
-  from { opacity: 0; transform: translateY(22px); }
+  from { opacity: 0; transform: translateY(30px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
@@ -40,26 +108,29 @@
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--cyan);
+  color: #ffffff;
   margin-bottom: 12px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 }
 .hero__title {
   font-family: var(--font-condensed);
   font-size: 3.4rem;
   font-weight: 800;
-  color: var(--white);
+  color: #ffffff;
   line-height: 1.05;
   margin-bottom: 18px;
   max-width: 620px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 .hero__subtitle {
   font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: #ffffff;
   margin-bottom: 36px;
   max-width: 480px;
   line-height: 1.7;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 /* CTA Buttons */
@@ -76,56 +147,95 @@
   transition: all 0.22s;
   border: 2px solid transparent;
   font-family: var(--font-main);
+  /* Mejorar experiencia táctil */
+  min-height: 44px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 .btn--primary {
   background: var(--cyan);
   color: var(--white);
   border-color: var(--cyan);
 }
-.btn--primary:hover {
+.btn--primary:hover,
+.btn--primary:focus {
   background: var(--cyan-dark);
   border-color: var(--cyan-dark);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(0, 170, 255, 0.38);
 }
 .btn--ghost {
-  background: transparent;
-  color: rgba(255, 255, 255, 0.88);
-  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
-.btn--ghost:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.7);
+.btn--ghost:hover,
+.btn--ghost:focus {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.9);
   transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
 }
 .btn__icon { font-size: 1rem; }
 
 /* ===== LOGO BADGE (imagen) ===== */
 .hero__badge {
   position: absolute;
-  right: 9%;
+  right: 20%;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 2;
-  width: 240px;
-  height: 240px;
+  z-index: 3;
+  width: 160px;
+  height: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  /* Crear una máscara circular para ocultar el cuadrado */
+  border-radius: 50%;
+  overflow: hidden;
   /* Halo de luz sutil detrás del logo */
   filter: drop-shadow(0 0 32px rgba(0, 170, 255, 0.35));
-  animation: badgePulse 4s ease-in-out infinite;
+  animation: badgePulse 6s ease-in-out infinite;
 }
 @keyframes badgePulse {
-  0%, 100% { filter: drop-shadow(0 0 28px rgba(0, 170, 255, 0.3)); }
-  50%       { filter: drop-shadow(0 0 48px rgba(0, 170, 255, 0.55)); }
+  0%, 100% { 
+    filter: drop-shadow(0 0 28px rgba(0, 170, 255, 0.3));
+    transform: translateY(-50%) scale(1);
+  }
+  50% { 
+    filter: drop-shadow(0 0 48px rgba(0, 170, 255, 0.55));
+    transform: translateY(-50%) scale(1.02);
+  }
 }
 
 .hero__badge-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  mix-blend-mode: screen;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  /* Asegurar que no hay estilos heredados */
+  margin: 0 !important;
+  padding: 0 !important;
+  /* Aplicar máscara circular directamente a la imagen */
+  -webkit-mask: radial-gradient(circle, black 55%, transparent 50%);
+  mask: radial-gradient(circle, black 55%, transparent 50%);
+}
+
+/* Limpiar cualquier estilo que pueda afectar la imagen */
+.hero__badge *,
+.hero__badge *::before,
+.hero__badge *::after {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 /* Dots */
@@ -138,19 +248,87 @@
   gap: 8px;
   z-index: 3;
 }
+/* Numbered Dots with Progress */
+.hero__dots {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 16px;
+  z-index: 3;
+}
+
 .hero__dot {
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.45);
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border: none;
   background: transparent;
   cursor: pointer;
-  transition: all 0.25s;
+  transition: all 0.3s ease;
+  /* Mejorar área táctil */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
-.hero__dot--active {
-  background: var(--cyan);
-  border-color: var(--cyan);
-  width: 26px;
-  border-radius: 5px;
+
+.hero__dot-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.hero__dot-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 2;
+}
+
+.hero__dot-fill {
+  fill: none;
+  stroke: var(--cyan);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 0.1s linear;
+}
+
+.hero__dot-number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: var(--font-condensed);
+  transition: all 0.3s ease;
+}
+
+.hero__dot--active .hero__dot-number {
+  color: var(--white);
+  font-size: 1rem;
+}
+
+.hero__dot--active .hero__dot-bg {
+  stroke: rgba(255, 255, 255, 0.4);
+}
+
+.hero__dot:hover .hero__dot-number,
+.hero__dot:focus .hero__dot-number {
+  color: var(--cyan);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Mejorar accesibilidad */
+.hero__dot:focus {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+  border-radius: 50%;
 }
 
 /* ===== STATS BAR ===== */
@@ -178,10 +356,311 @@
 @media (max-width: 900px) {
   .hero__badge { display: none; }
   .hero__title { font-size: 2.4rem; }
+  
+  /* Ajustar layout para tablet */
+  .hero__content {
+    margin-left: 40%;
+    width: 60%;
+    padding: 40px 30px;
+  }
+  
+  .hero__slide {
+    background-size: cover, cover !important;
+    background-position: center, center !important;
+  }
+  
+  .hero__image-gradients {
+    width: 40%;
+  }
 }
+
+@media (max-width: 768px) {
+  .hero { 
+    height: auto; 
+    min-height: 550px; 
+  }
+  
+  /* Layout móvil: imagen de fondo completa con overlay */
+  .hero__slide {
+    background-size: cover !important;
+    background-position: center center !important;
+    align-items: flex-end;
+  }
+  
+  .hero__slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(10, 26, 77, 0.9) 0%,
+      rgba(10, 26, 77, 0.75) 25%,
+      rgba(10, 26, 77, 0.5) 45%,
+      rgba(10, 26, 77, 0.25) 65%,
+      rgba(10, 26, 77, 0.1) 80%,
+      transparent 100%
+    );
+    z-index: 1;
+  }
+  
+  .hero__content {
+    margin-left: 0;
+    width: 100%;
+    padding: 40px 20px 50px;
+    min-height: auto;
+    background: transparent !important;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .hero__image-gradients {
+    display: none;
+  }
+  
+  .hero__title { 
+    font-size: 2.2rem; 
+    margin-bottom: 16px;
+  }
+  
+  .hero__subtitle { 
+    font-size: 1rem;
+    margin-bottom: 28px;
+    max-width: none;
+  }
+  
+  .hero__ctas {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .btn {
+    justify-content: center;
+    padding: 14px 24px;
+    font-size: 0.95rem;
+  }
+}
+
 @media (max-width: 600px) {
-  .hero { height: auto; min-height: 420px; }
-  .hero__title { font-size: 1.9rem; }
-  .hero__subtitle { font-size: 0.95rem; }
-  .statsbar__inner { gap: 24px; justify-content: flex-start; padding: 0 8px; }
+  .hero { 
+    min-height: 500px; 
+  }
+  
+  .hero__title { 
+    font-size: 2rem; 
+    line-height: 1.1;
+  }
+  
+  .hero__subtitle { 
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+  
+  .hero__content {
+    padding: 35px 18px 45px;
+  }
+  
+  .hero__subtitle { 
+    font-size: 0.95rem; 
+  }
+  
+  .hero__content {
+    padding: 25px 16px 35px;
+  }
+  
+  .hero__dots {
+    bottom: 16px;
+    gap: 12px;
+  }
+  
+  .hero__dot {
+    width: 38px;
+    height: 38px;
+  }
+  
+  .hero__dot-number {
+    font-size: 0.8rem;
+  }
+  
+  .hero__dot--active .hero__dot-number {
+    font-size: 0.9rem;
+  }
+  
+  .statsbar__inner { 
+    gap: 24px; 
+    justify-content: flex-start; 
+    padding: 0 8px; 
+  }
+  
+  .statsbar__item {
+    gap: 10px;
+  }
+  
+  .statsbar__icon { 
+    font-size: 1.6rem; 
+  }
+  
+  .statsbar__num { 
+    font-size: 1.6rem; 
+  }
+  
+  .statsbar__label { 
+    font-size: 0.75rem; 
+  }
+}
+
+@media (max-width: 480px) {
+  .hero { 
+    min-height: 400px; 
+  }
+  
+  .hero__title { 
+    font-size: 1.7rem; 
+    line-height: 1.1;
+  }
+  
+  .hero__subtitle { 
+    font-size: 0.9rem; 
+    line-height: 1.6;
+  }
+  
+  .hero__content {
+    padding: 20px 12px 30px;
+  }
+  
+  .hero__eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+  }
+  
+  .statsbar {
+    padding: 20px 0;
+  }
+  
+  .statsbar__inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .statsbar__item {
+    justify-content: center;
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/* Estilos adicionales para dispositivos muy pequeños */
+@media (max-width: 360px) {
+  .hero { 
+    min-height: 380px; 
+  }
+  
+  .hero__title { 
+    font-size: 1.5rem; 
+  }
+  
+  .hero__subtitle { 
+    font-size: 0.85rem; 
+  }
+  
+  .hero__content {
+    padding: 18px 10px 28px;
+  }
+  
+  .btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .hero__dots {
+    gap: 10px;
+    bottom: 12px;
+  }
+  
+  .hero__dot {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .hero__dot-number {
+    font-size: 0.75rem;
+  }
+  
+  .hero__dot--active .hero__dot-number {
+    font-size: 0.85rem;
+  }
+}
+
+/* Mejoras para orientación landscape en móviles */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    min-height: 400px;
+  }
+  
+  .hero__slide {
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+  
+  .hero__content {
+    padding: 20px 20px 25px;
+  }
+  
+  .hero__title {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+  
+  .hero__subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero__ctas {
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Optimización adicional para imágenes en móviles */
+@media (max-width: 768px) {
+  .hero__slide {
+    /* Asegurar que las imágenes mantengan buena calidad */
+    background-attachment: scroll;
+    background-blend-mode: normal;
+  }
+  
+  /* Mejorar contraste del texto sobre las imágenes */
+  .hero__title,
+  .hero__subtitle,
+  .hero__eyebrow {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  }
+}
+
+/* Máscara circular de brillo para resaltar los camiones */
+.hero__image-spotlight {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: 
+    radial-gradient(ellipse 500px 350px at 20% 50%, 
+      transparent 0%, 
+      transparent 35%, 
+      rgba(13, 31, 94, 0.1) 45%,
+      rgba(13, 31, 94, 0.3) 60%,
+      rgba(13, 31, 94, 0.6) 75%,
+      rgba(13, 31, 94, 0.8) 85%,
+      rgba(13, 31, 94, 0.95) 92%,
+      #0d1f5e 100%
+    );
+  pointer-events: none;
 }

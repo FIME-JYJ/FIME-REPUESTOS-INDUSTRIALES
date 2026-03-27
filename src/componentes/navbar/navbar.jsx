@@ -50,10 +50,11 @@ export default function Navbar() {
       <div className="topbar">
         <div className="container topbar__inner">
           <span className="topbar__item">
-            <FiPhone className="topbar__icon" /> +57 310 000 0000
+            <FiPhone className="topbar__icon" /> +51 983 507 611
           </span>
           <span className="topbar__item">
-            <FiMail className="topbar__icon" /> ventas@fimerepuestos.com
+            <FiMail className="topbar__icon" /> jjulian@fime-repuestos.com
+
           </span>
           <span className="topbar__item">
             <FiClock className="topbar__icon" /> Lun - Sáb: 8am - 6pm
@@ -122,19 +123,7 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Category Bar */}
-      <div className="catbar">
-        <div className="container catbar__inner">
-          <button className="catbar__all">
-            <FiMenu className="catbar__all-icon" /> Todos los Productos
-          </button>
-          {categories.map((cat) => (
-            <Link key={cat.name} to="/#productos" className="catbar__link" onClick={() => setMenuOpen(false)}>
-              {cat.name}
-            </Link>
-          ))}
-        </div>
-      </div>
+
     </>
   );
 }

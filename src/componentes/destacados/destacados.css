@@ -1,79 +1,110 @@
-/* ===== CATEGORIAS ===== */
-.categorias { background: var(--gray-100); }
+/* ===== SECCIÓN DE CATEGORÍAS ===== */
+/* Tarjetas de categorías principales con imágenes de fondo */
+.categorias { background: var(--gray-100); }  /* Fondo gris claro */
 
+/* Cuadrícula de 3 columnas para las categorías */
 .categorias__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  display: grid;                          /* Layout de cuadrícula */
+  grid-template-columns: repeat(3, 1fr);   /* 3 columnas iguales */
+  gap: 20px;                             /* Espacio entre tarjetas */
+  max-width: 1000px;                     /* Ancho máximo */
+  margin: 0 auto;                        /* Centrado horizontal */
 }
 
+/* Tarjeta individual de categoría */
 .catcard {
-  background: var(--white);
-  border-radius: var(--radius);
-  padding: 28px 26px;
-  box-shadow: var(--shadow);
-  transition: transform 0.28s, box-shadow 0.28s, border-top-color 0.28s;
-  border-top: 3px solid transparent;
+  position: relative;                     /* Para posicionar overlay */
+  height: 400px;                         /* Altura fija */
+  border-radius: var(--radius);          /* Bordes redondeados */
+  overflow: hidden;                      /* Oculta contenido que se desborde */
+  cursor: pointer;                       /* Cursor de mano */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Transiciones suaves */
+  background-size: cover;                /* Imagen cubre todo el contenedor */
+  background-position: center;           /* Imagen centrada */
+  background-repeat: no-repeat;          /* Sin repetición de imagen */
 }
+
+/* Efecto hover en las tarjetas de categoría */
 .catcard:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
-  border-top-color: var(--cyan);
+  transform: translateY(-5px);           /* Elevación sutil */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);  /* Sombra pronunciada */
 }
 
-.catcard__icon-wrap {
-  width: 52px; height: 52px;
-  background: var(--gray-100);
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 14px;
-  transition: background 0.25s;
+/* Overlay oscuro sobre la imagen para mejorar legibilidad */
+.catcard__overlay {
+  position: absolute;                     /* Posicionamiento absoluto */
+  top: 0; left: 0; right: 0; bottom: 0;   /* Cubre toda la tarjeta */
+  background: linear-gradient(            /* Gradiente diagonal */
+    135deg,
+    rgba(0, 0, 0, 0.1) 0%,               /* Transparente en la esquina superior */
+    rgba(0, 0, 0, 0.3) 100%              /* Más oscuro en la esquina inferior */
+  );
+  display: flex;                          /* Layout flexbox */
+  align-items: flex-end;                  /* Contenido en la parte inferior */
+  padding: 30px;                         /* Espaciado interno */
+  transition: background 0.3s ease;      /* Transición suave del fondo */
 }
-.catcard:hover .catcard__icon-wrap { background: rgba(0, 170, 255, 0.1); }
 
-.catcard__icon {
-  font-size: 1.5rem;
-  color: var(--navy);
-  transition: color 0.25s;
+/* Overlay más oscuro en hover */
+.catcard:hover .catcard__overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
 }
-.catcard:hover .catcard__icon { color: var(--cyan); }
 
+/* Contenido de la tarjeta (nombre y botón) */
+.catcard__content {
+  display: flex;                          /* Layout horizontal */
+  align-items: center;                    /* Centrado vertical */
+  justify-content: space-between;         /* Espacio entre elementos */
+  width: 100%;                           /* Ancho completo */
+}
+
+/* Nombre de la categoría */
 .catcard__name {
-  font-family: var(--font-condensed);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-family: var(--font-condensed);     /* Fuente condensada */
+  font-size: 1.8rem;                     /* Tamaño grande */
+  font-weight: 700;                      /* Peso bold */
+  color: var(--white);                   /* Texto blanco */
+  margin: 0;                             /* Sin margen */
+  text-transform: uppercase;             /* Mayúsculas */
+  letter-spacing: 1px;                   /* Espaciado entre letras */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  /* Sombra para legibilidad */
 }
 
-.catcard__list { margin-bottom: 18px; }
-.catcard__list li {
-  padding: 5px 0;
-  font-size: 0.84rem;
-  color: var(--gray-600);
-  border-bottom: 1px dashed var(--gray-200);
+/* Botón circular con flecha */
+.catcard__arrow-btn {
+  width: 50px; height: 50px;             /* Tamaño fijo circular */
+  background: rgba(255, 255, 255, 0.2);  /* Fondo blanco semi-transparente */
+  border-radius: 50%;                    /* Forma circular */
+  display: flex;                         /* Layout flexbox */
+  align-items: center;                   /* Centrado vertical */
+  justify-content: center;               /* Centrado horizontal */
+  transition: all 0.3s ease;             /* Transición suave */
+  backdrop-filter: blur(10px);           /* Efecto de desenfoque */
+  border: 2px solid rgba(255, 255, 255, 0.3);  /* Borde semi-transparente */
 }
-.catcard__list li a {
-  color: inherit;
-  transition: color 0.15s;
-}
-.catcard__list li a:hover { color: var(--cyan); }
 
-.catcard__link {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  color: var(--cyan);
-  font-size: 0.85rem;
-  font-weight: 600;
-  transition: gap 0.2s, color 0.2s;
+/* Estado hover del botón */
+.catcard:hover .catcard__arrow-btn {
+  background: var(--cyan);               /* Fondo celeste */
+  border-color: var(--cyan);             /* Borde celeste */
+  transform: scale(1.1);                 /* Aumento de tamaño */
 }
-.catcard__link:hover { color: var(--navy); gap: 9px; }
-.catcard__arrow { font-size: 0.95rem; }
+
+/* Flecha dentro del botón */
+.catcard__arrow {
+  font-size: 1.5rem;                     /* Tamaño del icono */
+  color: var(--white);                   /* Color blanco */
+  transition: transform 0.3s ease;       /* Transición suave */
+}
+
+/* Movimiento de la flecha en hover */
+.catcard:hover .catcard__arrow {
+  transform: translateX(3px);            /* Desplazamiento hacia la derecha */
+}
 
 /* ===== PRODUCTOS ===== */
 .productos { background: var(--white); }
@@ -197,10 +228,44 @@
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
-  .categorias__grid,
+  .categorias__grid { 
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 600px;
+  }
   .productos__grid { grid-template-columns: repeat(2, 1fr); }
+  
+  .catcard {
+    height: 300px;
+  }
+  
+  .catcard__name {
+    font-size: 1.5rem;
+  }
+  
+  .catcard__overlay {
+    padding: 20px;
+  }
 }
+
 @media (max-width: 560px) {
   .categorias__grid,
   .productos__grid { grid-template-columns: 1fr; }
+  .categorias__grid { max-width: 400px; }
+  
+  .catcard {
+    height: 220px;
+  }
+  
+  .catcard__name {
+    font-size: 1.3rem;
+  }
+  
+  .catcard__arrow-btn {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .catcard__arrow {
+    font-size: 1.2rem;
+  }
 }

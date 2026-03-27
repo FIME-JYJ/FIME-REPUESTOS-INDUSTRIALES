@@ -16,7 +16,7 @@ export default function Footer() {
             <span className="footer__logo-rep">Repuestos</span>
           </div>
           <p className="footer__desc">
-            Especialistas en repuestos para camiones y vehiculos de carga pesada.
+            Especialistas en repuestos para camiones americanos y vehiculos de carga pesada.
             Calidad garantizada en cada pieza.
           </p>
           <div className="footer__social">
@@ -47,11 +47,12 @@ export default function Footer() {
           <h4 className="footer__title">Contacto</h4>
           <div className="footer__contact-item">
             <FiPhone className="footer__contact-icon" />
-            <span>+51 993 271 800</span>
+            <span>+51 983 507 611</span>
+            <span>+51 912 195 453</span>
           </div>
           <div className="footer__contact-item">
             <FiMail className="footer__contact-icon" />
-            <span>ventas@fime-industrial.com</span>
+            <span>jjulian@fime-repuestos.com</span>
           </div>
           <div className="footer__contact-item">
             <FiClock className="footer__contact-icon" />

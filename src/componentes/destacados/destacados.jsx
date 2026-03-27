@@ -1,46 +1,35 @@
-import { FiSettings, FiDisc, FiSliders, FiFilter, FiWind, FiTool,  FiArrowRight } from 'react-icons/fi';
+import { FiSettings, FiBox, FiTruck, FiArrowRight } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 import './destacados.css';
 
 const categories = [
   {
-    name: 'Motores',
+    name: 'Motor',
     icon: FiSettings,
-    subcats: ['Cummins ISX', 'Cummins ISM', 'Mercedes Benz'],
+    subcats: ['Cummins ISX', 'Cummins ISM', 'Mercedes Benz', 'Caterpillar'],
+    image: '/img/Categories/motor.webp',
   },
   {
-    name: 'Suspension',
-    icon: FiDisc,
-    subcats: ['Amortiguadores', 'Bujes', 'Rodamientos'],
+    name: 'Cabina',
+    icon: FiBox,
+    subcats: ['Asientos', 'Tablero', 'Aire Acondicionado', 'Vidrios'],
+    image: '/img/Categories/cabina.webp',
   },
   {
-    name: 'Frenos de Aire',
-    icon: FiSliders,
-    subcats: ['Valvulas', 'Bendix', 'Compresores'],
-  },
-  {
-    name: 'Filtracion',
-    icon: FiFilter,
-    subcats: ['Filtros de Aceite', 'Filtros de Aire', 'Filtros Combustible'],
-  },
-  {
-    name: 'Aire Acondicionado',
-    icon: FiWind,
-    subcats: ['Condensador', 'Compresor A/C', 'Evaporador'],
-  },
-  {
-    name: 'Accesorios',
-    icon: FiTool,
-    subcats: ['Correas', 'Tensores', 'Sensores'],
+    name: 'Chasis',
+    icon: FiTruck,
+    subcats: ['Suspensión', 'Frenos', 'Transmisión', 'Ejes'],
+    image: '/img/Categories/chasis.webp',
   },
 ];
 
 const products = [
-  { id: 1, name: 'Kit de Empaque Cummins ISX', price: '$320.000', category: 'Motores',    tag: 'Nuevo',   icon: FiSettings },
-  { id: 2, name: 'Amortiguador Delantero Kenworth', price: '$185.000', category: 'Suspension', tag: 'Popular', icon: FiDisc },
-  { id: 3, name: 'Valvula Relay Bendix R-12', price: '$95.000',  category: 'Frenos',     tag: 'Oferta',  icon: FiSliders },
-  { id: 4, name: 'Filtro de Aire Primario Freightliner', price: '$65.000',  category: 'Filtracion', tag: 'Nuevo',   icon: FiFilter },
-  { id: 5, name: 'Compresor A/C International', price: '$450.000', category: 'A/C',        tag: 'Popular', icon: FiWind },
-  { id: 6, name: 'Rodamiento Rueda Trasera', price: '$78.000',  category: 'Suspension', tag: null,      icon: FiDisc },
+  { id: 1, name: 'Kit de Empaque Cummins ISX', price: '$320.000', category: 'Motor',    tag: 'Nuevo',   icon: FiSettings },
+  { id: 2, name: 'Asiento Conductor Kenworth', price: '$185.000', category: 'Cabina', tag: 'Popular', icon: FiBox },
+  { id: 3, name: 'Amortiguador Delantero', price: '$95.000',  category: 'Chasis',     tag: 'Oferta',  icon: FiTruck },
+  { id: 4, name: 'Turbo Cummins ISM', price: '$650.000',  category: 'Motor', tag: 'Nuevo',   icon: FiSettings },
+  { id: 5, name: 'Tablero Internacional', price: '$450.000', category: 'Cabina',        tag: 'Popular', icon: FiBox },
+  { id: 6, name: 'Sistema de Frenos Bendix', price: '$278.000',  category: 'Chasis', tag: null,      icon: FiTruck },
 ];
 
 const tagColors = {
@@ -50,6 +39,8 @@ const tagColors = {
 };
 
 export default function Destacados() {
+  const navigate = useNavigate();
+
   return (
     <>
       {/* Categorias */}
@@ -62,20 +53,21 @@ export default function Destacados() {
           </div>
 
           <div className="categorias__grid">
-            {categories.map(({ name, icon: Icon, subcats }) => (
-              <div key={name} className="catcard">
-                <div className="catcard__icon-wrap">
-                  <Icon className="catcard__icon" />
+            {categories.map(({ name, icon: Icon, subcats, image }) => (
+              <div
+                key={name}
+                className="catcard"
+                style={{ backgroundImage: `url(${image})`, cursor: 'pointer' }}
+                onClick={() => navigate('/catalogo')}
+              >
+                <div className="catcard__overlay">
+                  <div className="catcard__content">
+                    <h3 className="catcard__name">{name}</h3>
+                    <div className="catcard__arrow-btn">
+                      <FiArrowRight className="catcard__arrow" />
+                    </div>
+                  </div>
                 </div>
-                <h3 className="catcard__name">{name}</h3>
-                <ul className="catcard__list">
-                  {subcats.map((s) => (
-                    <li key={s}><a href="#productos">{s}</a></li>
-                  ))}
-                </ul>
-                <a href="#productos" className="catcard__link">
-                  Ver todos <FiArrowRight className="catcard__arrow" />
-                </a>
               </div>
             ))}
           </div>

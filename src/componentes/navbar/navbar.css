@@ -1,91 +1,107 @@
-/* ===== TOP BAR ===== */
+/* ===== BARRA SUPERIOR ===== */
+/* Información de contacto en la parte superior */
 .topbar {
-  background: var(--navy-dark);
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.8rem;
-  padding: 8px 0;
+  background: var(--navy-dark);           /* Fondo azul muy oscuro */
+  color: rgba(255, 255, 255, 0.8);       /* Texto blanco semi-transparente */
+  font-size: 0.8rem;                     /* Tamaño pequeño */
+  padding: 8px 0;                        /* Espaciado vertical mínimo */
 }
 .topbar__inner {
-  display: flex;
-  gap: 28px;
-  align-items: center;
-  flex-wrap: wrap;
+  display: flex;                          /* Layout horizontal */
+  gap: 28px;                             /* Espacio entre elementos */
+  align-items: center;                    /* Centrado vertical */
+  flex-wrap: wrap;                       /* Permite salto de línea */
 }
 .topbar__item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  display: flex;                          /* Layout horizontal */
+  align-items: center;                    /* Centrado vertical */
+  gap: 6px;                              /* Espacio entre icono y texto */
 }
 .topbar__icon {
-  color: var(--cyan);
-  flex-shrink: 0;
+  color: var(--cyan);                     /* Icono celeste */
+  flex-shrink: 0;                        /* No se encoge */
 }
 
-/* ===== HEADER ===== */
+/* ===== HEADER PRINCIPAL ===== */
+/* Barra de navegación principal con logo y menú */
 .header {
-  background: var(--navy);
-  padding: 14px 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  transition: background 0.3s, padding 0.3s, box-shadow 0.3s;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-}
-.header--sticky {
-  padding: 10px 0;
-  background: var(--navy-dark);
-  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.35);
-}
-.header__inner {
-  display: flex;
-  align-items: center;
-  gap: 24px;
+  background: var(--navy);               /* Fondo azul */
+  padding: 14px 0;                      /* Espaciado vertical */
+  position: sticky;                     /* Se mantiene fijo al hacer scroll */
+  top: 0;                              /* Posición superior */
+  z-index: 1000;                       /* Por encima de otros elementos */
+  transition: background 0.3s, padding 0.3s, box-shadow 0.3s;  /* Transiciones suaves */
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);  /* Sombra sutil */
 }
 
-/* Logo */
+/* Estado sticky del header (cuando se hace scroll) */
+.header--sticky {
+  padding: 10px 0;                      /* Menos padding */
+  background: var(--navy-dark);         /* Fondo más oscuro */
+  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.35);  /* Sombra más pronunciada */
+}
+
+/* Contenedor interno del header */
+.header__inner {
+  display: flex;                        /* Layout horizontal */
+  align-items: center;                  /* Centrado vertical */
+  gap: 24px;                           /* Espacio entre elementos */
+}
+
+/* === LOGO DE LA EMPRESA === */
 .logo {
-  display: flex;
-  flex-direction: column;
-  line-height: 1;
-  flex-shrink: 0;
+  display: flex;                        /* Layout vertical */
+  flex-direction: column;               /* Dirección vertical */
+  line-height: 1;                      /* Sin espaciado entre líneas */
+  flex-shrink: 0;                      /* No se encoge */
 }
 .logo__fime {
-  font-family: var(--font-condensed);
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--white);
-  letter-spacing: -1px;
-  font-style: italic;
+  font-family: var(--font-condensed);   /* Fuente condensada */
+  font-size: 2rem;                     /* Tamaño grande */
+  font-weight: 800;                    /* Peso extra bold */
+  color: var(--white);                 /* Texto blanco */
+  letter-spacing: -1px;                /* Espaciado negativo entre letras */
+  font-style: italic;                  /* Estilo itálico */
 }
 .logo__rep {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--cyan);
-  letter-spacing: 0.5px;
+  font-size: 0.85rem;                  /* Tamaño pequeño */
+  font-weight: 700;                    /* Peso bold */
+  color: var(--cyan);                  /* Color celeste */
+  letter-spacing: 0.5px;               /* Espaciado entre letras */
 }
 
-/* Nav */
+/* === NAVEGACIÓN PRINCIPAL === */
 .nav {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  margin-left: auto;
+  display: flex;                        /* Layout horizontal */
+  align-items: center;                  /* Centrado vertical */
+  gap: 2px;                            /* Espacio mínimo entre enlaces */
+  margin-left: auto;                   /* Se empuja hacia la derecha */
 }
+
+/* Enlaces de navegación */
 .nav__link {
-  color: rgba(255, 255, 255, 0.88);
-  padding: 8px 13px;
-  border-radius: var(--radius-sm);
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: color 0.2s, background 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 4px;
+  color: rgba(255, 255, 255, 0.88);    /* Blanco semi-transparente */
+  padding: 8px 13px;                   /* Espaciado interno */
+  border-radius: var(--radius-sm);     /* Bordes redondeados */
+  font-size: 0.9rem;                   /* Tamaño legible */
+  font-weight: 500;                    /* Peso medio */
+  transition: color 0.2s, background 0.2s;  /* Transiciones suaves */
+  display: flex;                       /* Layout flexbox */
+  align-items: center;                 /* Centrado vertical */
+  gap: 4px;                           /* Espacio entre texto e icono */
 }
-.nav__link:hover { color: var(--cyan); background: rgba(255, 255, 255, 0.08); }
-.nav__chevron { font-size: 0.85rem; transition: transform 0.2s; }
-.nav__dropdown { position: relative; }
-.nav__dropdown:hover .nav__chevron { transform: rotate(180deg); }
+.nav__link:hover { 
+  color: var(--cyan);                  /* Color celeste en hover */
+  background: rgba(255, 255, 255, 0.08);  /* Fondo semi-transparente */
+}
+
+/* Icono de chevron para dropdowns */
+.nav__chevron { 
+  font-size: 0.85rem;                  /* Tamaño pequeño */
+  transition: transform 0.2s;          /* Transición de rotación */
+}
+.nav__dropdown { position: relative; }  /* Posicionamiento relativo para dropdown */
+.nav__dropdown:hover .nav__chevron { transform: rotate(180deg); }  /* Rotación en hover */
 
 /* Mega Dropdown */
 .mega {
@@ -165,49 +181,6 @@
   cursor: pointer;
   padding: 4px;
 }
-
-/* ===== CATEGORY BAR ===== */
-.catbar {
-  background: var(--gray-100);
-  border-bottom: 1px solid var(--gray-200);
-}
-.catbar__inner {
-  display: flex;
-  align-items: stretch;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-.catbar__inner::-webkit-scrollbar { display: none; }
-.catbar__all {
-  background: var(--navy);
-  color: var(--white);
-  border: none;
-  padding: 13px 20px;
-  font-size: 0.84rem;
-  font-weight: 600;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-  font-family: var(--font-main);
-}
-.catbar__all:hover { background: var(--cyan); }
-.catbar__all-icon { font-size: 1rem; }
-.catbar__link {
-  padding: 13px 16px;
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--gray-800);
-  white-space: nowrap;
-  transition: color 0.2s, background 0.2s;
-  border-right: 1px solid var(--gray-200);
-  display: flex;
-  align-items: center;
-}
-.catbar__link:hover { color: var(--cyan); background: var(--white); }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {

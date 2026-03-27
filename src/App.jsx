@@ -1,14 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './componentes/navbar/navbar';
-import Principal from './componentes/principal/principal';
-import Buscador from './componentes/buscador/buscador';
+import Principal from './componentes/principal/principal.jsx';
 import Destacados from './componentes/destacados/destacados';
-import Informacion from './componentes/información/información';
+import Informacion from './componentes/informacion/informacion';
 import Contacto from './componentes/contacto/contacto';
 import Footer from './componentes/footer/footer';
+import ScrollToTop from './componentes/scroll-to-top/ScrollToTop';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Catalogo from './componentes/catalogo/Catalogo';
+import WhatsAppButton from './componentes/whatsapp/whatsapp';
 
 // Aquí definimos la "Página Nueva" del Catálogo
 function PaginaCatalogo() {
@@ -58,17 +59,18 @@ export default function App() {
                 <Route path="/" element={
                     <>
                         <Principal />
-                        <Buscador />
                         <Destacados />
                         <Informacion />
                         <Contacto />
                         <Footer />
+                        <WhatsAppButton />
                     </>
                 } />
 
                 {/* RUTA 2: La página nueva del catálogo */}
                 <Route path="/catalogo" element={<Catalogo />} />
             </Routes>
+            <ScrollToTop />
         </Router>
     );
 }
