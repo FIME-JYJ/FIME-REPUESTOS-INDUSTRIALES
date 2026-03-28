@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './componentes/navbar/navbar';
 import Principal from './componentes/principal/principal.jsx';
 import Destacados from './componentes/destacados/destacados';
@@ -51,7 +51,7 @@ function ScrollToHash() {
 
 export default function App() {
     return (
-        <Router>
+        <>
             <ScrollToHash />
             <Navbar />
             <Routes>
@@ -71,6 +71,6 @@ export default function App() {
                 <Route path="/catalogo" element={<Catalogo />} />
             </Routes>
             <ScrollToTop />
-        </Router>
+        </>
     );
 }
