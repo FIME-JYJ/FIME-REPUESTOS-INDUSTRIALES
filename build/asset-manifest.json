@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f4b093bc.css",
+    "main.js": "/static/js/main.d4551f08.js",
+    "static/media/banner2.webp": "/static/media/banner2.5b95a5019ca248cbcbfa.webp",
+    "static/media/banner1.webp": "/static/media/banner1.bfbb29e6f50b0703b10d.webp",
+    "static/media/banner3.webp": "/static/media/banner3.4c4d866363b181843449.webp",
+    "static/media/WesternStar.png": "/static/media/WesternStar.f38def4363a9d761cdbe.png",
+    "static/media/volante.webp": "/static/media/volante.f6a1ba17465f8d76d9ee.webp",
+    "static/media/fime.png": "/static/media/fime.6d39f7b182cba91e298d.png",
+    "static/media/International.jpg": "/static/media/International.434eea7196b33904c9aa.jpg",
+    "static/media/inyector.webp": "/static/media/inyector.4ae3f243810d00bcdc85.webp",
+    "static/media/campana.webp": "/static/media/campana.58ad11e3452c27e660ac.webp",
+    "static/media/setEmpaques.webp": "/static/media/setEmpaques.ccd703fef9daef44f43f.webp",
+    "static/media/ciguenal.webp": "/static/media/ciguenal.1ee51be26c055c6a7b14.webp",
+    "static/media/MercedesBenz.png": "/static/media/MercedesBenz.03f7cd08bf5d6f23c199.png",
+    "static/media/volanteDetroit.webp": "/static/media/volanteDetroit.f49148a0e006d30f1e5c.webp",
+    "static/media/canilleras.webp": "/static/media/canilleras.628dcf177fb667873637.webp",
+    "static/media/turbo.webp": "/static/media/turbo.77dc01772f34b1436385.webp",
+    "static/media/carter.webp": "/static/media/carter.bece55f35107b6f06f98.webp",
+    "static/media/bombaDetroit.webp": "/static/media/bombaDetroit.42315295244932c4e095.webp",
+    "static/media/Volvo.png": "/static/media/Volvo.cf93fcace356d3a1edbd.png",
+    "static/media/sensor.webp": "/static/media/sensor.1198733aeb6017764eaf.webp",
+    "static/media/Kenworth.jpg": "/static/media/Kenworth.e86a1cd9427999f0120b.jpg",
+    "static/media/bomba.webp": "/static/media/bomba.fc5713b28910d81c03ae.webp",
+    "static/media/culata.webp": "/static/media/culata.e673a1dce971219fa9a3.webp",
+    "static/media/biela.webp": "/static/media/biela.d6b4030872575d50e632.webp",
+    "static/media/Mack.jpg": "/static/media/Mack.9b45bf0e8be44b04b54d.jpg",
+    "static/media/camisas.webp": "/static/media/camisas.ccbf304cffb26e6135e7.webp",
+    "static/media/arbol.webp": "/static/media/arbol.bf08a002abd963fc600d.webp",
+    "static/media/escape.webp": "/static/media/escape.1ece9e5990d619c3e7bd.webp",
+    "static/media/kitEmpaques.webp": "/static/media/kitEmpaques.63006e6501c36423a07d.webp",
+    "static/media/radiador.webp": "/static/media/radiador.ac999c4b320d82b9dbd1.webp",
+    "static/media/anillos.webp": "/static/media/anillos.66579f154eb14902eddd.webp",
+    "index.html": "/index.html",
+    "main.f4b093bc.css.map": "/static/css/main.f4b093bc.css.map",
+    "main.d4551f08.js.map": "/static/js/main.d4551f08.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f4b093bc.css",
+    "static/js/main.d4551f08.js"
+  ]
+}
