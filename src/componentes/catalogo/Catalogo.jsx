@@ -25,26 +25,26 @@ import bombaDetroitImg from '../../img/Catalogo/bombaDetroit.webp'
 import radiadorImg  from '../../img/Catalogo/radiador.webp' 
 
 const vehiculos = [
-    { id: 1, nombre: 'CAMISAS DE MOTOR Y ANILLOS ORIGINAL x6 unidad', tipo: 'Motor', marca: 'Mercedes Benz', hp: 'Mercedes Benz', imagen: camisasImg },
-    { id: 2, nombre: 'JGO METAL BCDA.STD OM457', tipo: 'Motor ', marca: 'MAHLE', hp: 'MAHLE', imagen: canillerasImg },
-    { id: 3, nombre: 'EMPAQUE DE ESCAPE', tipo: 'Motor', marca: 'ELRI', hp: 'ELRI', imagen: escapeImg },
-    { id: 4, nombre: 'EMPAQUE DE CULATA', tipo: 'Motor', marca: 'ELRI', hp: 'ELRI', imagen: culataImg},
-    { id: 5, nombre: 'ANILLOS DE MOTOR', tipo: 'Motor', marca: 'KSP', hp: 'KSP', imagen: anillosImg },
-    { id: 6, nombre: 'CIGUENAL ORIGINAL', tipo: 'Motor', marca: 'Mercedes Benz', hp: 'Mercedes Benz', imagen: ciguelaImg },
-    { id: 7, nombre: 'VOLANTE DE INERCIA  CON CORONA DE ARRANQUE', tipo: 'Motor', marca: 'Mercedes Benz', hp: 'Mercedes Benz', imagen: volanteImg },
-    { id: 8, nombre: 'BIELA', tipo: 'Motor', marca: 'Mercedes Benz', hp: 'Mercedes Benz', imagen: bielaImg },
-    { id: 9, nombre: 'ARBOL DE EJE DE LEVAS', tipo: 'Motor', marca: 'Volvo', hp: 'Volvo', imagen: arbolImg },
-    { id: 10, nombre: 'BOMBA DE COMBUSTIBLE', tipo: 'Motor', marca: 'Mack', hp: 'Mack', imagen: bombaImg },
-    { id: 11, nombre: 'CAMPANA DE DISTRIBUCION ORIGINAL', tipo: 'Motor', marca: 'Mercedes Benz', hp: 'Mercedes Benz', imagen: campanaImg },
-    { id: 12, nombre: 'CARTER COMPLETO DE MOTOR ORIGINAL', tipo: 'Motor', marca: 'Mercedes Benz', hp: 'Mercedes Benz', imagen: carterImg },
-    { id: 13, nombre: 'SET DE EMPAQUES DE MOTOR ', tipo: 'Motor', marca: 'Detroit', hp: 'Detroit', imagen: setEmpaquesImg },
-    { id: 14, nombre: 'KIT EMPAQUE CULATA S-60', tipo: 'Motor', marca: 'Detroit', hp: 'Detroit', imagen: kitEmpaquesImg },
-    { id: 15, nombre: 'VOLANTE MOTOR S50-60', tipo: 'Motor', marca: 'Detroit', hp: 'Detroit', imagen: volanteDetroitImg },
-    { id: 16, nombre: 'INYECTOR COMPLETO S60 12L', tipo: 'Motor', marca: 'Detroit', hp: 'Detroit', imagen: inyectorImg },
-    { id: 17, nombre: 'SENSOR PRESION DE ACEITE', tipo: 'Motor', marca: 'Detroit', hp: 'Detroit', imagen: sensorImg },
-    { id: 18, nombre: 'TURBO S60 D4', tipo: 'Motor', marca: 'Detroit', hp: 'Detroit', imagen: turboImg },
-    { id: 19, nombre: 'BOMBA DE ACEITE  ORIGINAL', tipo: 'Motor', marca: 'Detroit', hp: 'Detroit', imagen: bombaDetroitImg },
-    { id: 20, nombre: 'BHT B4761 RADIADOR DE AGUA PARA M2 112 / CL 112 / CL 120', tipo: 'Motor', marca: 'Detroit', hp: 'Detroit', imagen: radiadorImg },
+    { id: 1, nombre: 'CAMISAS DE MOTOR Y ANILLOS ORIGINAL x6 unidad', categoria: 'Motor', marca: 'Mercedes Benz', modelo: 'Actros',tipo: 'Original', imagen: camisasImg },
+    { id: 2, nombre: 'JGO METAL BCDA.STD OM457', categoria: 'Motor ', marca: 'MAHLE', modelo: 'Actros',tipo: 'Original', imagen: canillerasImg },
+    { id: 3, nombre: 'EMPAQUE DE ESCAPE', categoria: 'Motor', marca: 'ELRI', modelo: 'Axor',tipo: 'Original', imagen: escapeImg },
+    { id: 4, nombre: 'EMPAQUE DE CULATA', categoria: 'Motor', marca: 'ELRI', modelo: 'Axor',tipo: 'Original', imagen: culataImg},
+    { id: 5, nombre: 'ANILLOS DE MOTOR', categoria: 'Motor', marca: 'KSP', modelo: 'Cascadia',tipo: 'Original', imagen: anillosImg },
+    { id: 6, nombre: 'CIGUENAL ORIGINAL', categoria: 'Motor', marca: 'Mercedes Benz', modelo: 'Actros',tipo: 'Original', imagen: ciguelaImg },
+    { id: 7, nombre: 'VOLANTE DE INERCIA  CON CORONA DE ARRANQUE', categoria: 'Motor', marca: 'Mercedes Benz', modelo: 'M2',tipo: 'Original', imagen: volanteImg },
+    { id: 8, nombre: 'BIELA', categoria: 'Motor', marca: 'Mercedes Benz', modelo: 'M2',tipo: 'Original', imagen: bielaImg },
+    { id: 9, nombre: 'ARBOL DE EJE DE LEVAS', categoria: 'Motor', marca: 'Volvo', modelo: 'VN',tipo: 'Original', imagen: arbolImg },
+    { id: 10, nombre: 'BOMBA DE COMBUSTIBLE', categoria: 'Motor', marca: 'Mack', modelo: 'Anthem',tipo: 'Original', imagen: bombaImg },
+    { id: 11, nombre: 'CAMPANA DE DISTRIBUCION ORIGINAL', categoria: 'Motor', marca: 'Mercedes Benz', modelo: 'Axor',tipo: 'Original', imagen: campanaImg },
+    { id: 12, nombre: 'CARTER COMPLETO DE MOTOR ORIGINAL', categoria: 'Motor', marca: 'Mercedes Benz', modelo: 'Actros',tipo: 'Alternativo', imagen: carterImg },
+    { id: 13, nombre: 'SET DE EMPAQUES DE MOTOR ', categoria: 'Motor', marca: 'Detroit', modelo: 'DD15',tipo: 'Alternativo', imagen: setEmpaquesImg },
+    { id: 14, nombre: 'KIT EMPAQUE CULATA S-60', categoria: 'Motor', marca: 'Detroit', modelo: 'S60',tipo: 'Alternativo', imagen: kitEmpaquesImg },
+    { id: 15, nombre: 'VOLANTE MOTOR S50-60', categoria: 'Motor', marca: 'Detroit', modelo: 'S60',tipo: 'Alternativo', imagen: volanteDetroitImg },
+    { id: 16, nombre: 'INYECTOR COMPLETO S60 12L', categoria: 'Motor', marca: 'Detroit', modelo: 'S60',tipo: 'Alternativo', imagen: inyectorImg },
+    { id: 17, nombre: 'SENSOR PRESION DE ACEITE', categoria: 'Motor', marca: 'Detroit', modelo: 'DD15',tipo: 'Alternativo', imagen: sensorImg },
+    { id: 18, nombre: 'TURBO S60 D4', categoria: 'Motor', marca: 'Detroit', modelo: 'S60',tipo: 'Alternativo', imagen: turboImg },
+    { id: 19, nombre: 'BOMBA DE ACEITE  ORIGINAL', categoria: 'Motor', marca: 'Detroit', modelo: 'DD15',tipo: 'Alternativo', imagen: bombaDetroitImg },
+    { id: 20, nombre: 'BHT B4761 RADIADOR DE AGUA', categoria: 'Motor', marca: 'Detroit', modelo: 'M2', tipo: 'Alternativo', imagen: radiadorImg },
 
     // Agrega más vehículos aquí
 ];
@@ -58,7 +58,7 @@ const categorias = [
 ];
 export default function Catalogo() {
     // Estado para los filtros del buscador
-    const [filtros, setFiltros] = useState({ brand: '', category: '', term: '' });
+    const [filtros, setFiltros] = useState({ brand: '', category: '', term: '', model: '' });
 
     // Función que recibe los datos desde el componente Buscador
     const handleSearch = (nuevosFiltros) => {
@@ -68,10 +68,11 @@ export default function Catalogo() {
     // Lógica de filtrado con los nuevos campos
     const vehiculosFiltrados = vehiculos.filter(v => {
         const matchBrand = !filtros.brand || v.marca === filtros.brand;
-        const matchCategory = !filtros.category || v.tipo === filtros.category;
+        const matchCategory = !filtros.category || v.categoria === filtros.category;
         const matchTerm = !filtros.term || v.nombre.toLowerCase().includes(filtros.term.toLowerCase());
+        const matchModel = !filtros.model || v.modelo === filtros.model;
 
-        return matchBrand && matchCategory && matchTerm;
+        return matchBrand && matchCategory && matchTerm && matchModel;
     });
 
     return (
@@ -103,9 +104,10 @@ export default function Catalogo() {
                                         <img src={v.imagen || MercedesBenzLogo} alt={v.nombre} />
                                     </div>
                                     <div className="vehicle-info">
-                                        <span className="vehicle-tag">{v.tipo}</span>
+                                        <span className="vehicle-tag">{v.categoria}</span>
                                         <h3>{v.nombre}</h3>
-                                        <p className="vehicle-specs">Marca: {v.hp}</p>
+                                        <p className="vehicle-specs">Marca: {v.marca}</p>
+                                        <p className="vehicle-specs">Modelo: {v.modelo}</p>
                                         <button className="vehicle-btn">Ver Detalle</button>
                                     </div>
                                 </div>
