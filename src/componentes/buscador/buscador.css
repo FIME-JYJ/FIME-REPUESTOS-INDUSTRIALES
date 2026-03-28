@@ -33,6 +33,12 @@
   display: flex;           /* Layout horizontal */
   gap: 12px;              /* Espacio entre campos */
   flex-wrap: wrap;        /* Permite salto de línea en móviles */
+  margin-bottom: 12px;    /* Espacio antes de la fila de búsqueda */
+}
+.buscador__search-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 /* Estilos base para campos de entrada */
@@ -51,7 +57,7 @@
 
 /* Tamaños específicos de campos */
 .buscador__select { flex: 1; min-width: 180px; cursor: pointer; }  /* Select más pequeño */
-.buscador__input  { flex: 2; min-width: 240px; }                   /* Input más ancho */
+.buscador__input  { flex: 1; min-width: 240px; }                   /* Input más ancho */
 
 /* Estilos específicos para elementos */
 .buscador__select option { color: var(--text); background: var(--white); }  /* Opciones del select */
@@ -96,7 +102,7 @@
 /* Adaptaciones para dispositivos móviles */
 @media (max-width: 768px) {
   .buscador__box { padding: 24px 20px; }      /* Menos padding en móviles */
-  .buscador__row { flex-direction: column; }   /* Campos en columna */
+  .buscador__row, .buscador__search-row { flex-direction: column; }   /* Campos en columna */
   .buscador__select,
   .buscador__input { min-width: 100%; }        /* Ancho completo */
 }

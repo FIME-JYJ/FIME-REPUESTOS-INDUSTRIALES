@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import {
-  FiPhone, FiMail, FiClock, FiShoppingCart,
+  FiPhone, FiMail, FiClock,
   FiMenu, FiX, FiChevronDown
 } from 'react-icons/fi';
 import './navbar.css';
