@@ -1,68 +1,82 @@
 import { useState, useEffect } from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
+import { IoClose } from 'react-icons/io5';
 import './whatsapp.css';
 
 export default function WhatsAppButton() {
   const [isVisible, setIsVisible] = useState(false);
-  const [showTooltip, setShowTooltip] = useState(false);
-  
+  const [isOpen, setIsOpen] = useState(false);
+
   const phoneNumbers = [
     { number: '983507611', label: 'Ventas' },
-    { number: '912195453', label: 'Cotizaciones' }
+    { number: '912195453', label: 'Cotizaciones' },
   ];
   const message = 'Hola, me interesa cotizar repuestos para camiones';
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      setIsVisible(window.pageYOffset > 300);
     };
-
     window.addEventListener('scroll', toggleVisibility);
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
   const handleWhatsAppClick = (phoneNumber) => {
-    const whatsappUrl = `https://wa.me/51${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    const url = `https://wa.me/51${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
   };
 
   return (
-    <div className={`whatsapp-button ${isVisible ? 'whatsapp-button--visible' : ''}`}>
-      <div 
-        className="whatsapp-button__wrapper"
-        onMouseEnter={() => setShowTooltip(true)}
-        onMouseLeave={() => setShowTooltip(false)}
-      >
-        <div className="whatsapp-button__container">
-          <FaWhatsapp className="whatsapp-button__icon" />
+    <div className={`wa-widget ${isVisible ? 'wa-widget--visible' : ''}`}>
+      {/* Card */}
+      <div className={`wa-card ${isOpen ? 'wa-card--open' : ''}`}>
+        {/* Header */}
+        <div className="wa-card__header">
+          <div className="wa-card__header-brand">
+            <FaWhatsapp size={16} />
+            <span>Escríbenos por <strong>WhatsApp</strong></span>
+          </div>
+          <button className="wa-card__close" onClick={() => setIsOpen(false)}>
+            <IoClose />
+          </button>
         </div>
-        
-        {/* Mensaje por defecto */}
-        <div className={`whatsapp-default-message ${showTooltip ? 'whatsapp-default-message--hidden' : ''}`}>
-          Cotiza aquí
-        </div>
-        
-        {/* Tooltip con números */}
-        <div className={`whatsapp-tooltip ${showTooltip ? 'whatsapp-tooltip--visible' : ''}`}>
-          <div className="whatsapp-tooltip__content">
-            <span className="whatsapp-tooltip__text">Cotiza con:</span>
+
+        {/* Body */}
+        <div className="wa-card__body">
+          <div className="wa-bubble">
+            Hola, ¿En qué podemos ayudarte?
+          </div>
+          <div className="wa-options">
             {phoneNumbers.map((phone) => (
-              <div 
+              <button
                 key={phone.number}
-                className="whatsapp-tooltip__option"
+                className="wa-option"
                 onClick={() => handleWhatsAppClick(phone.number)}
               >
-                <span className="whatsapp-tooltip__label">{phone.label}:</span>
-                <span className="whatsapp-tooltip__number">{phone.number}</span>
-              </div>
+                <div>
+                  <div className="wa-option__label">{phone.label}</div>
+                  <div className="wa-option__number">+51 {phone.number}</div>
+                </div>
+                <FaWhatsapp className="wa-option__icon" />
+              </button>
             ))}
           </div>
         </div>
+
+        <div className="wa-card__footer">
+          Powered by WhatsApp
+        </div>
       </div>
+
+      {/* FAB */}
+      <button
+        className={`wa-fab ${isOpen ? 'wa-fab--open' : ''}`}
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="Abrir WhatsApp"
+      >
+        <FaWhatsapp className="wa-fab__icon-main" />
+        <IoClose className="wa-fab__icon-close" />
+      </button>
     </div>
   );
 }

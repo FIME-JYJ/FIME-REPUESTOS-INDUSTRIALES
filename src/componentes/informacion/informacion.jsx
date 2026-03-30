@@ -90,17 +90,17 @@ export default function Informacion() {
               </div>
               <div className="about__stats-mini">
                 <div className="about__stat">
-                  <span className="about__stat-num">15+</span>
+                  <span className="about__stat-num">+15</span>
                   <span className="about__stat-lbl">Años</span>
                 </div>
                 <div className="about__stat-divider" />
                 <div className="about__stat">
-                  <span className="about__stat-num">10k+</span>
+                  <span className="about__stat-num">+10k</span>
                   <span className="about__stat-lbl">Refs</span>
                 </div>
                 <div className="about__stat-divider" />
                 <div className="about__stat">
-                  <span className="about__stat-num">500+</span>
+                  <span className="about__stat-num">+500</span>
                   <span className="about__stat-lbl">Clientes</span>
                 </div>
               </div>
