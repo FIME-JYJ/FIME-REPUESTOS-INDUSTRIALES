@@ -40,6 +40,26 @@ import amortiguadorImg from './img/Catalogo/amortiguador.webp';
 import soporteImg from './img/Catalogo/soporte.webp';
 import placaCapotImg from './img/Catalogo/placaCapot.webp';
 import cornetaImg from './img/Catalogo/corneta.webp';
+import amortiguadorDelanteroImg from './img/Catalogo/amortiguadorDelantero.webp';
+import muelleCompletoDelanteroImg from './img/Catalogo/muelle.webp';
+import bocinaMuelleDelanteroImg from './img/Catalogo/bocinaDelantero.webp';
+import pernoResorteImg from './img/Catalogo/pernoResorte.webp';
+import abrazaderaDelanteroImg from './img/Catalogo/abrazaderaDelantero.webp';
+import bolsaSuspensionImg from './img/Catalogo/bolsaSuspension.webp';
+import bocinaMuelleImg from './img/Catalogo/bocinaMuelle.webp';
+import amortiguadorPosteriorImg from './img/Catalogo/amortiguadorPosterior.webp';
+import barraSuspensionImg from './img/Catalogo/barraSuspension.webp';
+import valvulaNiveladoraImg from './img/Catalogo/valvulaNiveladora.webp';
+import barraImg from './img/Catalogo/barra.webp';
+import kitPinesBocinasImg from './img/Catalogo/kitPinesBocinas.webp';
+import barraLargaImg from './img/Catalogo/barraLarga.webp';
+import bocamazaImg from './img/Catalogo/bocamaza.webp';
+import cuboDelanteroImg from './img/Catalogo/cuboDelantero.webp';
+import coronaCompletaImg from './img/Catalogo/corona.webp';
+import yugoImg from './img/Catalogo/yugo.webp';
+import crucetaCardanImg from './img/Catalogo/crucetaCardan.webp';
+import cajaDireccionImg from './img/Catalogo/cajaDireccion.webp';
+
 
 const vehiculos = [
     { id: 1, nombre: 'CAMISAS DE MOTOR Y ANILLOS ORIGINAL x6 unidad', categoria: 'Motor', marca: 'Mercedes Benz', modelo: 'Actros', tipo: 'Original', imagen: camisasImg, precio: 320000, descripcion: 'Este kit original de 6 camisas y anillos está diseñado para motores de 6 cilindros, asegurando un sellado de combustión óptimo, reduciendo la fricción y disipando el calor.', tag: 'Nuevo' },
@@ -96,7 +116,28 @@ const vehiculos = [
     { id: 44, nombre: 'BOLSA DE AIRE DE CABINA', categoria: 'Cabina', marca: 'Firestone / Goodyear / Sampa', tipo: 'Alternativo', modelo: 'Freightliner M2 / CL Series', imagen: bolsadAireCabinaImg, descripcion: 'Elemento del sistema de suspensión de cabina que absorbe vibraciones y golpes, mejorando la comodidad del conductor y reduciendo el impacto de la carretera.'},{ id: 45, nombre: 'AMORTIGUADOR DE CABINA', categoria: 'Cabina', marca: 'Gabriel / Monroe / Sampa', tipo: 'Alternativo', modelo: 'Freightliner M2 / CL Series', imagen: amortiguadorImg, descripcion: 'Amortiguador que forma parte de la suspensión de cabina, encargado de controlar el movimiento y reducir vibraciones para mayor estabilidad y confort.' },
     { id: 46, nombre: 'SOPORTE DE CABINA', categoria: 'Cabina', marca: 'Freightliner', tipo: 'Original', modelo: 'N/A', imagen: soporteImg, descripcion: 'Estructura metálica que sostiene y fija la cabina al chasis del camión, asegurando estabilidad y correcta alineación del conjunto del vehículo.' },
     { id: 47, nombre: 'PLACA DE CAPOT DE CABINA', categoria: 'Cabina', marca: 'Freightliner', tipo: 'Original', modelo: 'N/A', imagen: placaCapotImg, descripcion: 'Placa o emblema frontal del capó de la cabina. Cumple función estética e identificativa de la marca del vehículo.' },
-    { id: 48, nombre: 'CORNETA DE TECHO DE CABINA', categoria: 'Cabina', marca: 'FIAMM / HADLEY / Sampa', tipo: 'Alternativo', modelo: 'Universal camión pesado', imagen: cornetaImg, descripcion: 'Corneta neumática instalada en el techo de la cabina. Emite señal sonora de alta potencia para advertencia en carretera y seguridad vial.' }
+    { id: 48, nombre: 'CORNETA DE TECHO DE CABINA', categoria: 'Cabina', marca: 'FIAMM / HADLEY / Sampa', tipo: 'Alternativo', modelo: '-----', imagen: cornetaImg, descripcion: 'Corneta neumática instalada en el techo de la cabina. Emite señal sonora de alta potencia para advertencia en carretera y seguridad vial.' },
+    { id: 49, nombre: 'AMORTIGUADOR DELANTERO', categoria: 'Chasis', marca: '------', tipo: 'Alternativo', modelo: '-----', imagen: amortiguadorDelanteroImg, descripcion: 'Amortiguador delantero diseñado para absorber impactos y vibraciones en el sistema de suspensión, mejorando la estabilidad, control y confort de manejo del camión.' },
+    { id: 50, nombre: 'MUELLE COMPLETO DELANTERO', categoria: 'Chasis', marca: '---', tipo: 'Alternativo', modelo: '----', imagen: muelleCompletoDelanteroImg, descripcion: 'Muelle completo delantero que forma parte del sistema de suspensión, soportando el peso del vehículo y absorbiendo irregularidades del terreno para garantizar estabilidad y seguridad en la conducción.' },
+    { id: 51, nombre: 'BOCINA DE MUELLE DELANTERO', categoria: 'Chasis', marca: 'Sampa / Febi / Meritor', tipo: 'Alternativo', modelo: '-----', imagen: bocinaMuelleDelanteroImg, descripcion: 'Bocina de muelle delantero que actúa como elemento de unión y amortiguación entre el muelle y el chasis, reduciendo vibraciones, ruidos y desgaste en el sistema de suspensión.' },
+    { id: 52, nombre: 'PERNO DE RESORTE', categoria: 'Chasis', marca: '---', tipo: 'Alternativo', modelo: '----', imagen: pernoResorteImg, descripcion: 'Perno de resorte utilizado para fijar y asegurar los componentes del sistema de suspensión, garantizando la correcta alineación y estabilidad del conjunto de muelles.' },
+    { id: 53, nombre: 'ABRAZADERA DE MUELLE DELANTERO', categoria: 'Chasis', marca: 'Sampa / Meritor / Febi', tipo: 'Alternativo', modelo: '----', imagen: abrazaderaDelanteroImg, descripcion: 'Abrazadera de muelle delantero que asegura y mantiene en posición las hojas del resorte, garantizando estabilidad y correcto funcionamiento del sistema de suspensión.' },
+    { id: 54, nombre: 'BOLSA DE SUSPENSIÓN POSTERIOR', categoria: 'Chasis', marca: 'Firestone / Goodyear / Contitech', tipo: 'Alternativo', modelo: '----', imagen: bolsaSuspensionImg, descripcion: 'Bolsa de suspensión posterior neumática que absorbe impactos y mantiene la altura del vehículo, proporcionando mayor confort y estabilidad en la conducción.' },
+    {  id: 55, nombre: 'BOCINA DE MUELLE POSTERIOR', categoria: 'Chasis', marca: '----', tipo: 'Alternativo', modelo: '----', imagen: bocinaMuelleImg, descripcion: 'Bocina de muelle posterior que reduce vibraciones y desgaste entre el muelle y el chasis, mejorando la durabilidad del sistema de suspensión.' },
+    { id: 56, nombre: 'AMORTIGUADOR POSTERIOR', categoria: 'Chasis', marca: '-----', tipo: 'Alternativo', modelo: '----', imagen: amortiguadorPosteriorImg, descripcion: 'Amortiguador posterior diseñado para controlar los movimientos de la suspensión, absorbiendo impactos y garantizando estabilidad y confort en el vehículo.' },
+    { id: 57, nombre: 'BARRA DE SUSPENSIÓN DE CORONA', categoria: 'Chasis', marca: '----', tipo: 'Alternativo', modelo: '-----', imagen: barraSuspensionImg, descripcion: 'Barra de suspensión de corona que proporciona soporte y estabilidad al sistema de suspensión, ayudando a mantener la correcta alineación del eje.' },
+    { id: 58, nombre: 'VÁLVULA NIVELADORA DE TRACTO POSTERIOR', categoria: 'Chasis', marca: '---', tipo: 'Alternativo', modelo: '----', imagen: valvulaNiveladoraImg, descripcion: 'Válvula niveladora de tracto posterior que regula automáticamente la altura de la suspensión neumática, asegurando una distribución adecuada de la carga y estabilidad del vehículo.' },
+    {  id: 59, nombre: 'BARRA LARGA DE DIRECCIÓN', categoria: 'Chasis', marca: '---', tipo: 'Alternativo', modelo: '---', imagen: barraImg, descripcion: 'Barra larga de dirección que transmite el movimiento del volante hacia las ruedas, garantizando precisión y estabilidad en la maniobra del vehículo.' },
+    { id: 60, nombre: 'KIT DE PINES Y BOCINAS', categoria: 'Chasis', marca: '---', tipo: 'Alternativo', modelo: '---', imagen: kitPinesBocinasImg, descripcion: 'Kit de pines y bocinas utilizado en el sistema de suspensión y dirección, permitiendo la correcta articulación y reduciendo el desgaste entre componentes.' },
+    { id: 61, nombre: 'TERMINALES DE LA BARRA LARGA', categoria: 'Chasis', marca: '----', tipo: 'Alternativo', modelo: '---', imagen: barraLargaImg, descripcion: 'Terminales de la barra larga que conectan los extremos del sistema de dirección, permitiendo el movimiento articulado y asegurando un control preciso del vehículo.' },
+    { id: 62, nombre: 'TAPA DE BOCAMAZA DELANTERA', categoria: 'Chasis', marca: '----', tipo: 'Alternativo', modelo: '---', imagen: bocamazaImg, descripcion: 'Tapa de bocamaza delantera que protege los componentes internos del cubo de rueda contra polvo, suciedad y humedad, prolongando su vida útil.' },
+    { id: 63, nombre: 'CUBO DE RUEDA DELANTERA', categoria: 'Chasis', marca: '----', tipo: 'Alternativo', modelo: '---', imagen: cuboDelanteroImg, descripcion: 'Cubo de rueda delantera que soporta la rueda y permite su giro suave, integrando rodamientos y asegurando estabilidad y seguridad en la conducción.' },
+    { id: 64, nombre: 'CORONA COMPLETA', categoria: 'Chasis', marca: '---', tipo: 'Alternativo', modelo: '---', imagen: coronaCompletaImg, descripcion: 'Corona completa del diferencial que transmite la potencia del eje de transmisión hacia las ruedas, permitiendo el correcto funcionamiento del sistema de tracción.' },
+    { id: 65, nombre: 'YUGO DESLIZANTE EJE CARDÁN', categoria: 'Chasis', marca: '----', tipo: 'Alternativo', modelo: '---', imagen: yugoImg, descripcion: 'Yugo deslizante del eje cardán que permite la variación de longitud del eje durante el movimiento de la suspensión, asegurando una transmisión eficiente de la potencia.' },
+    { id: 66, nombre: 'CRUCETA DE CARDÁN', categoria: 'Chasis', marca: '------', tipo: 'Alternativo', modelo: '---', imagen: crucetaCardanImg, descripcion: 'Cruceta de cardán que permite la transmisión de movimiento entre ejes en distintos ángulos, garantizando flexibilidad y resistencia en el sistema de transmisión.' },
+    { id: 67, nombre: 'CAJA DE DIRECCIÓN COMPLETA', categoria: 'Chasis', marca: '---', tipo: 'Alternativo', modelo: '---', imagen: cajaDireccionImg, descripcion: 'Caja de dirección completa que convierte el movimiento del volante en desplazamiento de las ruedas, proporcionando control, precisión y seguridad en la conducción.' }
+
+
 
 
 ];
