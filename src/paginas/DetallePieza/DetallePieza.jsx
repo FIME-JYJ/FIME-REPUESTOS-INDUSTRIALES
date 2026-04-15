@@ -46,7 +46,6 @@ export default function DetallePieza() {
                         <p className="detalle-descripcion">{pieza.descripcion}</p>
 
                         <div className="action-area">
-                            <p className="price-tag">Precio: {pieza.precio ? `$${pieza.precio.toLocaleString()}` : 'Consultar'}</p>
                             <button className="btn-cotizar">Solicitar Cotización</button>
                         </div>
                     </div>

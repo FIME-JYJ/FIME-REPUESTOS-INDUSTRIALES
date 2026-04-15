@@ -85,7 +85,7 @@ const vehiculos = [
     
 
     // Productos añadidos desde la sección 'Destacados' — ahora forman parte del catálogo global
-    { id: 21, nombre: 'Turbo Cummins ISX Holset', categoria: 'Motor', marca: 'Cummins', modelo: 'ISX', tipo: 'Original', imagen: camisasImg, precio: 320000, descripcion: 'Turbo Holset para motores Cummins ISX — mejora la respuesta y eficiencia del motor, diseñado para altas prestaciones.' , tag: 'Nuevo' },
+    { id: 21, nombre: 'Turbo Cummins ISX Holset', categoria: 'Motor', marca: 'HOLSET', modelo: 'ISX', tipo: 'Original', imagen: camisasImg, precio: 320000, descripcion: 'Kit de embrague Etaton Fuller compatible con cajas de 15.5; incluye plato disco y collarin' , tag: 'Nuevo' },
     { id: 22, nombre: 'Kit de Embrague Eaton Fuller (15.5")', categoria: 'Transmisión', marca: 'Eaton', modelo: 'Fuller', tipo: 'Original', imagen: volanteImg, precio: 185000, descripcion: 'Kit de embrague Eaton Fuller compatible con cajas de 15.5"; incluye disco, prensa y rulemán.' , tag: 'Popular' },
     { id: 23, nombre: 'Bolsa de Aire de Cabina / Chasis', categoria: 'Suspensión', marca: 'AirTech', modelo: 'Universal', tipo: 'Alternativo', imagen: bombaImg, precio: 95000, descripcion: 'Bolsa de aire de alta resistencia para suspensión de cabina y chasis, ayuda a mejorar el confort y la estabilidad.' , tag: 'Oferta' },
     { id: 24, nombre: 'Faros LED de Alta Definición', categoria: 'Eléctrico', marca: 'Lumina', modelo: 'LED-HD', tipo: 'Alternativo', imagen: turboImg, precio: 650000, descripcion: 'Faros LED de alta definición con mayor alcance y eficiencia energética, ideales para conducción nocturna.' , tag: 'Nuevo' },
